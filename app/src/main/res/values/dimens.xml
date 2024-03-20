@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="margin_header_container">16dp</dimen>
+    <dimen name="layout_param">0dp</dimen>
+    <dimen name="margin_header_content">16dp</dimen>
     <dimen name="text_size_settings">34sp</dimen>
 
     <dimen name="text_size_logout_btn">14sp</dimen>
     <dimen name="radius_logout_btn">8dp</dimen>
     <dimen name="width_logout_btn">120dp</dimen>
     <dimen name="height_logout_btn">40dp</dimen>
-    <dimen name="stroke_width_logout_btn">8dp</dimen>
+    <dimen name="stroke_width_logout_btn">2dp</dimen>
 
     <dimen name="width_img">114dp</dimen>
     <dimen name="height_img">114dp</dimen>
-    <dimen name="margin_top_img">36dp</dimen>
+    <dimen name="margin_top_img">100dp</dimen>
 
     <dimen name="margin_top_name">16dp</dimen>
     <dimen name="text_size_name">24sp</dimen>
