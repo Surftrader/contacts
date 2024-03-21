@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<resources>
-    <bool name="text_caps_logout_btn">false</bool>
-    <bool name="photo_adjust_view_bounds">true</bool>
-    <bool name="edit_btn_font_padding">false</bool>
-    <bool name="text_caps_edit_btn">false</bool>
-    <bool name="contacts_btn_font_padding">false</bool>
-    <bool name="text_caps_contacts_btn">true</bool>
-</resources>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="layout_param">0dp</dimen>
     <dimen name="margin_header_content">16dp</dimen>
     <dimen name="text_size_settings">34sp</dimen>
 
@@ -29,17 +28,15 @@
     <dimen name="icon_margin_side">60dp</dimen>
     <dimen name="icon_margin_top">80dp</dimen>
 
-    <dimen name="width_edit_btn">320dp</dimen>
     <dimen name="height_edit_btn">60dp</dimen>
-    <dimen name="margin_edit_btn">16dp</dimen>
+    <dimen name="margin_edit_btn">32dp</dimen>
     <dimen name="margin_bottom_edit_btn">16dp</dimen>
     <dimen name="text_size_edit_btn">16sp</dimen>
     <dimen name="radius_edit_btn">8dp</dimen>
     <dimen name="stroke_width_edit_btn">2dp</dimen>
 
-    <dimen name="width_contacts_btn">320dp</dimen>
     <dimen name="height_contacts_btn">60dp</dimen>
-    <dimen name="margin_contacts_btn">16dp</dimen>
+    <dimen name="margin_contacts_btn">32dp</dimen>
     <dimen name="margin_bottom_contacts_btn">16dp</dimen>
     <dimen name="text_size_contacts_btn">16sp</dimen>
     <dimen name="radius_contacts_btn">8dp</dimen>

@@ -8,46 +8,45 @@
     tools:context=".MainActivity">
 
     <View
-        android:id="@+id/id_my_profile_up"
-        android:layout_width="@dimen/layout_param"
-        android:layout_height="@dimen/layout_param"
+        android:id="@+id/my_profile_up"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@color/profile_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/id_my_profile_down" />
+        app:layout_constraintBottom_toTopOf="@id/my_profile_down" />
 
     <View
-        android:id="@+id/id_my_profile_down"
-        android:layout_width="@dimen/layout_param"
-        android:layout_height="@dimen/layout_param"
+        android:id="@+id/my_profile_down"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/id_my_profile_up" />
+        app:layout_constraintTop_toBottomOf="@id/my_profile_up" />
 
     <TextView
-        android:id="@+id/id_text_view_settings"
+        android:id="@+id/text_view_settings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_header_content"
         android:layout_marginTop="@dimen/margin_header_content"
         android:text="@string/text_settings"
-
         android:textColor="@color/setting_text"
         android:textSize="@dimen/text_size_settings"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/id_btn_view_logout"
+        android:id="@+id/btn_view_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_header_content"
         android:layout_marginEnd="@dimen/margin_header_content"
         android:text="@string/log_out"
-        android:textAllCaps="@bool/text_caps_logout_btn"
+        android:textAllCaps="false"
         android:textColor="@color/grey"
         android:textSize="@dimen/text_size_logout_btn"
         app:backgroundTint="@android:color/transparent"
@@ -58,11 +57,11 @@
         app:strokeWidth="@dimen/stroke_width_logout_btn" />
 
     <ImageView
-        android:id="@+id/id_img_view_photo"
+        android:id="@+id/img_view_photo"
         android:layout_width="@dimen/width_img"
         android:layout_height="@dimen/height_img"
         android:layout_marginTop="@dimen/margin_top_img"
-        android:adjustViewBounds="@bool/photo_adjust_view_bounds"
+        android:adjustViewBounds="true"
         android:contentDescription="@string/avatar"
         android:scaleType="fitXY"
         android:src="@drawable/photo"
@@ -71,7 +70,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/id_text_view_name"
+        android:id="@+id/text_view_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_top_name"
@@ -80,10 +79,10 @@
         android:textSize="@dimen/text_size_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_img_view_photo" />
+        app:layout_constraintTop_toBottomOf="@+id/img_view_photo" />
 
     <TextView
-        android:id="@+id/id_text_view_profession"
+        android:id="@+id/text_view_profession"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_top_profession"
@@ -92,10 +91,10 @@
         android:textSize="@dimen/text_size_profession"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_text_view_name" />
+        app:layout_constraintTop_toBottomOf="@+id/text_view_name" />
 
     <TextView
-        android:id="@+id/id_text_view_address"
+        android:id="@+id/text_view_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_top_address"
@@ -103,13 +102,13 @@
         android:text="@string/text_view_address"
         android:textColor="@color/grey"
         android:textSize="@dimen/text_size_address"
-        app:layout_constraintBottom_toBottomOf="@id/id_my_profile_up"
+        app:layout_constraintBottom_toBottomOf="@id/my_profile_up"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_text_view_profession" />
+        app:layout_constraintTop_toBottomOf="@+id/text_view_profession" />
 
     <ImageView
-        android:id="@+id/id_img_view_facebook"
+        android:id="@+id/img_view_facebook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/icon_margin_side"
@@ -117,23 +116,23 @@
         android:contentDescription="@string/facebook_btn"
         android:foregroundGravity="center|center_horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/id_my_profile_down"
+        app:layout_constraintTop_toTopOf="@id/my_profile_down"
         app:srcCompat="@drawable/facebook" />
 
     <ImageView
-        android:id="@+id/id_img_view_linkedin"
+        android:id="@+id/img_view_linkedin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/icon_margin_top"
         android:contentDescription="@string/linkedin_btn"
         android:foregroundGravity="center|center_horizontal"
-        app:layout_constraintEnd_toStartOf="@+id/id_img_view_instagram"
-        app:layout_constraintStart_toEndOf="@+id/id_img_view_facebook"
-        app:layout_constraintTop_toTopOf="@id/id_my_profile_down"
+        app:layout_constraintEnd_toStartOf="@+id/img_view_instagram"
+        app:layout_constraintStart_toEndOf="@+id/img_view_facebook"
+        app:layout_constraintTop_toTopOf="@id/my_profile_down"
         app:srcCompat="@drawable/linkedin" />
 
     <ImageView
-        android:id="@+id/id_img_view_instagram"
+        android:id="@+id/img_view_instagram"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/icon_margin_top"
@@ -141,39 +140,39 @@
         android:contentDescription="@string/instagram_btn"
         android:foregroundGravity="center|center_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/id_my_profile_down"
+        app:layout_constraintTop_toTopOf="@id/my_profile_down"
         app:srcCompat="@drawable/instagram" />
 
     <Button
-        android:id="@+id/id_btn_edit"
-        android:layout_width="@dimen/width_edit_btn"
+        android:id="@+id/btn_edit"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/height_edit_btn"
         android:layout_marginStart="@dimen/margin_edit_btn"
         android:layout_marginEnd="@dimen/margin_edit_btn"
         android:layout_marginBottom="@dimen/margin_bottom_edit_btn"
-        android:includeFontPadding="@bool/edit_btn_font_padding"
+        android:includeFontPadding="false"
         android:text="@string/edit_profile"
-        android:textAllCaps="@bool/text_caps_edit_btn"
+        android:textAllCaps="false"
         android:textColor="@color/grey_text"
         android:textSize="@dimen/text_size_edit_btn"
         app:backgroundTint="@android:color/transparent"
         app:cornerRadius="@dimen/radius_edit_btn"
-        app:layout_constraintBottom_toTopOf="@+id/id_btn_contacts"
+        app:layout_constraintBottom_toTopOf="@+id/btn_contacts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:strokeColor="@color/profile_background"
         app:strokeWidth="@dimen/stroke_width_edit_btn" />
 
     <Button
-        android:id="@+id/id_btn_contacts"
-        android:layout_width="@dimen/width_contacts_btn"
+        android:id="@+id/btn_contacts"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/height_contacts_btn"
         android:layout_marginStart="@dimen/margin_contacts_btn"
         android:layout_marginEnd="@dimen/margin_contacts_btn"
         android:layout_marginBottom="@dimen/margin_bottom_contacts_btn"
-        android:includeFontPadding="@bool/contacts_btn_font_padding"
+        android:includeFontPadding="false"
         android:text="@string/view_my_contacts"
-        android:textAllCaps="@bool/text_caps_contacts_btn"
+        android:textAllCaps="true"
         android:textSize="@dimen/text_size_contacts_btn"
         android:textStyle="bold"
         app:backgroundTint="@color/orange"
