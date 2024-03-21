@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="grey">#B2B2B3</color>
+    <color name="grey_text">#18181F</color>
+    <color name="orange">#FB5E06</color>
+    <color name="setting_text">#FAFAFA</color>
+    <color name="profile_background">#242235</color>
 </resources>
