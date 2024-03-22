@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUpActivity">
+
+    <View
+        android:id="@+id/view_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/profile_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/greetings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:text="@string/text_greetings"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_greetings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/fill_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/fill_profile_margin"
+        android:text="@string/text_fill_profile"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_fill_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/greetings" />
+
+    <TextView
+        android:id="@+id/text_view_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_text_view_email"
+        android:layout_marginTop="@dimen/margin_text_view_email"
+        android:layout_marginEnd="@dimen/margin_text_view_email"
+        android:labelFor="@+id/edit_text_email"
+        android:text="@string/e_mail"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fill_profile" />
+
+    <EditText
+        android:id="@+id/edit_text_email"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_edit_text_email"
+        android:layout_marginStart="@dimen/margin_edit_text_email"
+        android:layout_marginEnd="@dimen/margin_edit_text_email"
+        android:maxEms="20"
+        android:fadeScrollbars="true"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_email" />
+
+    <TextView
+        android:id="@+id/text_view_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_text_view_password"
+        android:layout_marginTop="@dimen/margin_top_text_view_password"
+        android:layout_marginEnd="@dimen/margin_text_view_password"
+        android:labelFor="@+id/edit_text_password"
+        android:text="@string/password"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_text_view_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_email" />
+
+    <EditText
+        android:id="@+id/edit_text_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_text_password"
+        android:layout_marginStart="@dimen/margin_text_password"
+        android:layout_marginEnd="@dimen/margin_text_password"
+        android:minEms="8"
+        android:maxEms="20"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_password" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/remember_check_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_remember_check_box"
+        android:checked="true"
+        android:text="@string/remember_me"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_remember_check_box"
+        app:buttonTint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_password" />
+
+    <Button
+        android:id="@+id/google_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_google_btn"
+        android:layout_marginTop="@dimen/margin_top_google_btn"
+        android:layout_marginEnd="@dimen/margin_google_btn"
+        android:backgroundTint="@color/white"
+        android:text="@string/google"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size_google_button"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        app:icon="@drawable/google"
+        app:iconTint="@null"
+        app:iconGravity="textStart"
+        app:cornerRadius="@dimen/radius_google_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/remember_check_box" />
+
+    <TextView
+        android:id="@+id/text_view_or"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top_text_view_or"
+        android:text="@string/or"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_text_view_or"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/google_btn" />
+
+    <Button
+        android:id="@+id/register_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_register_btn"
+        android:layout_marginStart="@dimen/margin_register_btn"
+        android:layout_marginTop="@dimen/margin_top_register_btn"
+        android:layout_marginEnd="@dimen/margin_register_btn"
+        android:includeFontPadding="false"
+        android:text="@string/register"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_register_btn"
+        app:backgroundTint="@android:color/transparent"
+        app:cornerRadius="@dimen/radius_register_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_or"
+        app:strokeColor="@color/orange"
+        app:strokeWidth="@dimen/stroke_width_register_btn" />
+
+    <TextView
+        android:id="@+id/text_view_conditions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_text_view_conditions"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="@dimen/margin_text_view_conditions"
+        android:gravity="center"
+        android:text="@string/text_conditions"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_text_view_conditions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_btn" />
+
+    <TextView
+        android:id="@+id/text_view_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_text_view_account"
+        android:layout_marginBottom="@dimen/margin_text_view_account"
+        android:text="@string/text_account"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_text_view_account"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/text_view_sign_in"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_conditions"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <TextView
+        android:id="@+id/text_view_sign_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_text_view_sign_in"
+        android:layout_marginBottom="@dimen/margin_text_view_sign_in"
+        android:text="@string/sign_in"
+        android:textColor="@color/orange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_conditions"
+        app:layout_constraintStart_toEndOf="@+id/text_view_account"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
