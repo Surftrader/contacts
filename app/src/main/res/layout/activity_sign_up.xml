@@ -24,7 +24,7 @@
         android:id="@+id/greetings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="@dimen/margin_top_greetings"
         android:text="@string/text_greetings"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_greetings"
@@ -65,7 +65,8 @@
         android:layout_height="@dimen/height_edit_text_email"
         android:layout_marginStart="@dimen/margin_edit_text_email"
         android:layout_marginEnd="@dimen/margin_edit_text_email"
-        android:maxEms="20"
+        android:maxEms="@dimen/max_size_text_email"
+        android:text=""
         android:fadeScrollbars="true"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,19 +74,32 @@
         app:layout_constraintTop_toBottomOf="@+id/text_view_email" />
 
     <TextView
+        android:id="@+id/text_valid_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_text_valid_email"
+        android:layout_marginEnd="@dimen/margin_text_valid_email"
+        android:textColor="@color/red"
+        android:text=""
+        android:textSize="@dimen/hint_text_size_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_email" />
+
+    <TextView
         android:id="@+id/text_view_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_text_view_password"
-        android:layout_marginTop="@dimen/margin_top_text_view_password"
         android:layout_marginEnd="@dimen/margin_text_view_password"
+        android:layout_marginTop="@dimen/margin_top_text_view_password"
         android:labelFor="@+id/edit_text_password"
         android:text="@string/password"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_text_view_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_email" />
+        app:layout_constraintTop_toBottomOf="@+id/text_valid_email" />
 
     <EditText
         android:id="@+id/edit_text_password"
@@ -93,28 +107,44 @@
         android:layout_height="@dimen/height_text_password"
         android:layout_marginStart="@dimen/margin_text_password"
         android:layout_marginEnd="@dimen/margin_text_password"
-        android:minEms="8"
-        android:maxEms="20"
+        android:minEms="@dimen/min_text_password"
+        android:maxEms="@dimen/max_text_password"
+        android:text=""
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_view_password" />
+
+    <TextView
+        android:id="@+id/text_valid_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_text_valid_password"
+        android:layout_marginEnd="@dimen/margin_text_valid_password"
+        android:textColor="@color/red"
+        android:text=""
+        android:textSize="@dimen/hint_text_size_valid_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_password" />
 
     <androidx.appcompat.widget.AppCompatCheckBox
         android:id="@+id/remember_check_box"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_remember_check_box"
+        android:layout_marginTop="@dimen/margin_top_remember_check_box"
         android:checked="true"
         android:text="@string/remember_me"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_remember_check_box"
         app:buttonTint="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_password" />
+        app:layout_constraintTop_toBottomOf="@+id/text_valid_password" />
 
     <Button
         android:id="@+id/google_btn"
+        style="@style/Widget.MaterialComponents.Button.Icon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_google_btn"
@@ -124,13 +154,12 @@
         android:text="@string/google"
         android:textAllCaps="true"
         android:textColor="@color/black"
-        android:textStyle="bold"
         android:textSize="@dimen/text_size_google_button"
-        style="@style/Widget.MaterialComponents.Button.Icon"
-        app:icon="@drawable/google"
-        app:iconTint="@null"
-        app:iconGravity="textStart"
+        android:textStyle="bold"
         app:cornerRadius="@dimen/radius_google_btn"
+        app:icon="@drawable/google"
+        app:iconGravity="textStart"
+        app:iconTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/remember_check_box" />
@@ -173,7 +202,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_text_view_conditions"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/margin_top_text_view_conditions"
         android:layout_marginEnd="@dimen/margin_text_view_conditions"
         android:gravity="center"
         android:text="@string/text_conditions"

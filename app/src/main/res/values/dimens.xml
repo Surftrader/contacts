@@ -43,6 +43,7 @@
     <dimen name="radius_contacts_btn">8dp</dimen>
 
     <!--  Sign Up  -->
+    <dimen name="margin_top_greetings">100dp</dimen>
     <dimen name="text_size_greetings">34sp</dimen>
     <dimen name="fill_profile_margin">8dp</dimen>
     <dimen name="text_size_fill_profile">16sp</dimen>
@@ -50,15 +51,23 @@
     <dimen name="text_size_email">16sp</dimen>
     <dimen name="height_edit_text_email">48dp</dimen>
     <dimen name="margin_edit_text_email">32dp</dimen>
+    <dimen name="max_size_text_email">20</dimen>
+    <dimen name="margin_text_valid_email">32dp</dimen>
+    <dimen name="hint_text_size_email">14sp</dimen>
     <dimen name="margin_text_view_password">32dp</dimen>
-    <dimen name="margin_top_text_view_password">8dp</dimen>
+    <dimen name="margin_top_text_view_password">16dp</dimen>
     <dimen name="text_size_text_view_password">16sp</dimen>
     <dimen name="height_text_password">48dp</dimen>
     <dimen name="margin_text_password">32dp</dimen>
+    <dimen name="min_text_password">8</dimen>
+    <dimen name="max_text_password">20</dimen>
+    <dimen name="margin_text_valid_password">32dp</dimen>
+    <dimen name="hint_text_size_valid_password">14sp</dimen>
     <dimen name="margin_remember_check_box">32dp</dimen>
+    <dimen name="margin_top_remember_check_box">16dp</dimen>
     <dimen name="text_size_remember_check_box">16sp</dimen>
     <dimen name="margin_google_btn">32dp</dimen>
-    <dimen name="margin_top_google_btn">64dp</dimen>
+    <dimen name="margin_top_google_btn">56dp</dimen>
     <dimen name="text_size_google_button">16sp</dimen>
     <dimen name="radius_google_btn">8dp</dimen>
     <dimen name="margin_top_text_view_or">16dp</dimen>
@@ -70,6 +79,7 @@
     <dimen name="radius_register_btn">8dp</dimen>
     <dimen name="stroke_width_register_btn">2dp</dimen>
     <dimen name="margin_text_view_conditions">64dp</dimen>
+    <dimen name="margin_top_text_view_conditions">16dp</dimen>
     <dimen name="text_size_text_view_conditions">16sp</dimen>
     <dimen name="margin_text_view_account">16dp</dimen>
     <dimen name="text_size_text_view_account">12sp</dimen>
