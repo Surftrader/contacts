@@ -46,16 +46,14 @@
 
     <TextView
         android:id="@+id/text_view_email"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_text_view_email"
         android:layout_marginTop="@dimen/margin_text_view_email"
-        android:layout_marginEnd="@dimen/margin_text_view_email"
         android:labelFor="@+id/edit_text_email"
         android:text="@string/e_mail"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_email"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fill_profile" />
 
@@ -65,10 +63,10 @@
         android:layout_height="@dimen/height_edit_text_email"
         android:layout_marginStart="@dimen/margin_edit_text_email"
         android:layout_marginEnd="@dimen/margin_edit_text_email"
-        android:maxEms="@dimen/max_size_text_email"
-        android:text=""
         android:fadeScrollbars="true"
         android:inputType="textEmailAddress"
+        android:maxEms="20"
+        android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_view_email" />
@@ -88,16 +86,14 @@
 
     <TextView
         android:id="@+id/text_view_password"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_text_view_password"
-        android:layout_marginEnd="@dimen/margin_text_view_password"
         android:layout_marginTop="@dimen/margin_top_text_view_password"
         android:labelFor="@+id/edit_text_password"
         android:text="@string/password"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_text_view_password"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_valid_email" />
 
@@ -107,8 +103,8 @@
         android:layout_height="@dimen/height_text_password"
         android:layout_marginStart="@dimen/margin_text_password"
         android:layout_marginEnd="@dimen/margin_text_password"
-        android:minEms="@dimen/min_text_password"
-        android:maxEms="@dimen/max_text_password"
+        android:minEms="8"
+        android:maxEms="20"
         android:text=""
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"

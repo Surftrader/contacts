@@ -51,7 +51,6 @@
     <dimen name="text_size_email">16sp</dimen>
     <dimen name="height_edit_text_email">48dp</dimen>
     <dimen name="margin_edit_text_email">32dp</dimen>
-    <dimen name="max_size_text_email">20</dimen>
     <dimen name="margin_text_valid_email">32dp</dimen>
     <dimen name="hint_text_size_email">14sp</dimen>
     <dimen name="margin_text_view_password">32dp</dimen>
@@ -59,8 +58,6 @@
     <dimen name="text_size_text_view_password">16sp</dimen>
     <dimen name="height_text_password">48dp</dimen>
     <dimen name="margin_text_password">32dp</dimen>
-    <dimen name="min_text_password">8</dimen>
-    <dimen name="max_text_password">20</dimen>
     <dimen name="margin_text_valid_password">32dp</dimen>
     <dimen name="hint_text_size_valid_password">14sp</dimen>
     <dimen name="margin_remember_check_box">32dp</dimen>

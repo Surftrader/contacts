@@ -26,5 +26,7 @@
     <string name="text_account">Already have an account?</string>
     <string name="sign_in">Sign in</string>
     <string name="e_mail">E-mail</string>
+    <string name="incorrect_email">Incorrect email format</string>
+    <string name="incorrect_password">The password should have from 8 to 20 letters</string>
 
 </resources>
