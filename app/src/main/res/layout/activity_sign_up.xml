@@ -67,6 +67,7 @@
         android:inputType="textEmailAddress"
         android:maxEms="20"
         android:text=""
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_view_email" />
@@ -106,6 +107,7 @@
         android:minEms="8"
         android:maxEms="20"
         android:text=""
+        android:textColor="@color/white"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
