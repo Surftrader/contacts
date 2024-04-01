@@ -47,11 +47,17 @@ class SignUpActivity : AppCompatActivity() {
                 }
 
                 if (validEmail && validPassword) {
-                    val intent = Intent(this@SignUpActivity, MainActivity::class.java)
+                    val intent = Intent(this@SignUpActivity,
+                        MainActivity::class.java)
                     startActivity(intent)
                     finish()
                 }
             }
         }
+    }
+
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
     }
 }
