@@ -26,6 +26,11 @@ class MyProfileActivity : AppCompatActivity() {
         }
 
         with(binding) {
+            textViewName.text = buildString {
+                append(intent.getStringExtra("firstName"))
+                append(" ")
+                append(intent.getStringExtra("lastName"))
+            }
             btnViewLogout.setOnClickListener {
                 val intent = Intent(this@MyProfileActivity,
                     SignUpActivity::class.java)

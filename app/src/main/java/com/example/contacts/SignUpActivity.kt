@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.contacts.databinding.ActivitySignUpBinding
+import com.example.contacts.util.Parser
 import com.example.contacts.util.Validator
 
 class SignUpActivity : AppCompatActivity() {
@@ -47,8 +48,12 @@ class SignUpActivity : AppCompatActivity() {
                 }
 
                 if (validEmail && validPassword) {
+                    val username = Parser.getUsername(email)
                     val intent = Intent(this@SignUpActivity,
-                        MyProfileActivity::class.java)
+                        MyProfileActivity::class.java).also {
+                            it.putExtra("firstName", username.first)
+                            it.putExtra("lastName", username.second)
+                        }
                     startActivity(intent)
                     finish()
                 }

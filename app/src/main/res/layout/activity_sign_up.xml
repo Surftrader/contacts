@@ -54,7 +54,6 @@
         android:layout_marginVertical="@dimen/small_margin_vertical"
         android:hint="@string/e_mail"
         android:textColorHint="@color/grey"
-        app:boxStrokeColor="@color/grey"
         app:hintTextAppearance="?attr/textAppearanceBody1"
         app:cursorColor="@color/white"
         app:boxBackgroundColor="@color/profile_background"
