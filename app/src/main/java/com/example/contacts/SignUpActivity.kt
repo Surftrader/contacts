@@ -48,7 +48,7 @@ class SignUpActivity : AppCompatActivity() {
 
                 if (validEmail && validPassword) {
                     val intent = Intent(this@SignUpActivity,
-                        MainActivity::class.java)
+                        MyProfileActivity::class.java)
                     startActivity(intent)
                     finish()
                 }

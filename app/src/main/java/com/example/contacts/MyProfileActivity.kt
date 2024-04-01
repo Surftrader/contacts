@@ -6,12 +6,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.contacts.databinding.ActivityMainBinding
+import com.example.contacts.databinding.ActivityMyProfileBinding
 
-class MainActivity : AppCompatActivity() {
+class MyProfileActivity : AppCompatActivity() {
 
-    private val binding: ActivityMainBinding by lazy {
-        ActivityMainBinding.inflate(
+    private val binding: ActivityMyProfileBinding by lazy {
+        ActivityMyProfileBinding.inflate(
             layoutInflater
         )
     }
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         with(binding) {
             btnViewLogout.setOnClickListener {
-                val intent = Intent(this@MainActivity,
+                val intent = Intent(this@MyProfileActivity,
                     SignUpActivity::class.java)
                 startActivity(intent)
                 finish()
