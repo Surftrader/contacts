@@ -1,6 +1,8 @@
 package com.example.contacts
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +20,8 @@ class SignUpActivity : AppCompatActivity() {
         )
     }
 
+    private var sharedPref: SharedPreferences? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,40 +31,67 @@ class SignUpActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        sharedPref = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
 
-        with(binding) {
-            registerBtn.setOnClickListener {
-                val email = editTextEmail.text.toString().trim()
-                val password = editTextPassword.text.toString().trim()
-                val validEmail = Validator.isValidEmail(email)
-                val validPassword = Validator.isValidPassword(password)
+        loadData()
 
-                textViewEmail.helperText = if (!validEmail) {
-                   getString(R.string.incorrect_email)
-                } else {
-                    null
-                }
+        binding.registerBtn.setOnClickListener { switchVisibility() }
+    }
 
-                textViewPassword.helperText = if (!validPassword) {
-                   getString(R.string.incorrect_password)
-                } else {
-                     null
-                }
+    private fun switchVisibility() = with(binding) {
 
-                if (validEmail && validPassword) {
-                    val username = Parser.getUsername(email)
-                    val intent = Intent(this@SignUpActivity,
-                        MyProfileActivity::class.java).also {
-                            it.putExtra("firstName", username.first)
-                            it.putExtra("lastName", username.second)
-                        }
-                    startActivity(intent)
-                    finish()
-                }
-            }
+        val email = editTextEmail.text.toString().trim()
+        val password = editTextPassword.text.toString().trim()
+        val validEmail = Validator.isValidEmail(email)
+        val validPassword = Validator.isValidPassword(password)
+
+        textViewEmail.helperText = if (!validEmail) {
+            getString(R.string.incorrect_email)
+        } else {
+            null
+        }
+
+        textViewPassword.helperText = if (!validPassword) {
+            getString(R.string.incorrect_password)
+        } else {
+            null
+        }
+
+        if (validEmail && validPassword) {
+            saveData(rememberCheckBox.isChecked, email, password)
+            moveToMyProfile(email)
         }
     }
 
+    private fun moveToMyProfile(email: String) {
+        val username = Parser.getUsername(email)
+        val intent = Intent(
+            this@SignUpActivity,
+            MyProfileActivity::class.java
+        ).also {
+            it.putExtra("firstName", username.first)
+            it.putExtra("lastName", username.second)
+        }
+        startActivity(intent)
+        finish()
+    }
+
+    private fun saveData(isRemember: Boolean, email: String, password: String) {
+        sharedPref?.edit()!!
+            .apply {
+                putBoolean("isRemember", isRemember)
+                putString("email", email)
+                putString("password", password)
+            }.apply()
+    }
+
+    private fun loadData() {
+        if (sharedPref?.getBoolean("isRemember", false)!!) {
+            moveToMyProfile(sharedPref?.getString("email", "")!!)
+        }
+    }
+
+    @Suppress("DEPRECATION")
     override fun finish() {
         super.finish()
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)

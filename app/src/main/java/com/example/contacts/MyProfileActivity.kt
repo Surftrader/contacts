@@ -1,6 +1,8 @@
 package com.example.contacts
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +17,9 @@ class MyProfileActivity : AppCompatActivity() {
             layoutInflater
         )
     }
+
+    private var sharedPref: SharedPreferences? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -24,22 +29,31 @@ class MyProfileActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        sharedPref = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
 
-        with(binding) {
-            textViewName.text = buildString {
-                append(intent.getStringExtra("firstName"))
-                append(" ")
-                append(intent.getStringExtra("lastName"))
-            }
-            btnViewLogout.setOnClickListener {
-                val intent = Intent(this@MyProfileActivity,
-                    SignUpActivity::class.java)
-                startActivity(intent)
-                finish()
-            }
+        binding.textViewName.text = initName()
+        binding.btnViewLogout.setOnClickListener { logout() }
+    }
+
+    private fun initName(): String {
+        return buildString {
+            append(intent.getStringExtra("firstName"))
+            append(" ")
+            append(intent.getStringExtra("lastName"))
         }
     }
 
+    private fun logout() {
+        sharedPref?.edit()?.clear()?.apply()
+        val intent = Intent(
+            this@MyProfileActivity,
+            SignUpActivity::class.java
+        )
+        startActivity(intent)
+        finish()
+    }
+
+    @Suppress("DEPRECATION")
     override fun finish() {
         super.finish()
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
