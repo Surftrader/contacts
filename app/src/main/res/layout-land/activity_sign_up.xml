@@ -59,10 +59,9 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_view_email"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-        android:layout_marginStart="@dimen/large_margin_horizontal"
-        android:layout_marginEnd="@dimen/large_margin_horizontal"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/large_margin_horizontal"
         android:layout_marginVertical="@dimen/small_margin_vertical"
         android:hint="@string/e_mail"
         android:textColorHint="@color/grey"
@@ -81,7 +80,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_text_email"
-            android:layout_width="@dimen/width_edit_text_email"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:text=""
@@ -92,8 +91,9 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_view_password"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/large_margin_horizontal"
         android:hint="@string/password"
         android:textColorHint="@color/grey"
         app:boxBackgroundColor="@color/profile_background"
@@ -111,7 +111,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_text_password"
-            android:layout_width="@dimen/width_edit_text_password"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:text=""
@@ -137,8 +137,9 @@
     <Button
         android:id="@+id/google_btn"
         style="@style/Widget.MaterialComponents.Button.Icon"
-        android:layout_width="@dimen/width_btn"
+        android:layout_width="0dp"
         android:layout_height="@dimen/height_btn"
+        android:layout_marginHorizontal="@dimen/large_margin_horizontal"
         android:backgroundTint="@color/color_btn_google"
         android:text="@string/google"
         android:textAllCaps="true"
@@ -170,8 +171,9 @@
 
     <Button
         android:id="@+id/register_btn"
-        android:layout_width="@dimen/width_btn"
+        android:layout_width="0dp"
         android:layout_height="@dimen/height_btn"
+        android:layout_marginHorizontal="@dimen/large_margin_horizontal"
         android:layout_marginTop="@dimen/small_margin_vertical"
         android:text="@string/register"
         android:textAllCaps="true"
@@ -205,25 +207,26 @@
         android:id="@+id/text_view_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/medium_margin_vertical"
-        android:layout_marginEnd="@dimen/medium_margin_horizontal"
+        android:layout_marginTop="@dimen/large_margin_vertical"
         android:text="@string/text_account"
         android:textColor="@color/grey"
         android:textSize="@dimen/title_small"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/view_signup_right"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintTop_toBottomOf="@id/text_view_conditions"
         app:layout_constraintStart_toStartOf="@id/view_signup_right"
-        app:layout_constraintEnd_toStartOf="@+id/text_view_sign_in" />
+        app:layout_constraintEnd_toStartOf="@id/text_view_sign_in" />
 
     <TextView
         android:id="@+id/text_view_sign_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/medium_margin_horizontal"
-        android:layout_marginBottom="@dimen/medium_margin_vertical"
+        android:layout_marginTop="@dimen/large_margin_vertical"
         android:text="@string/sign_in"
         android:textColor="@color/btn_color_view_contacts"
         android:textSize="@dimen/title_small"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/text_view_account"
+        app:layout_constraintTop_toBottomOf="@id/text_view_conditions"
+        app:layout_constraintEnd_toEndOf="@id/view_signup_right" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

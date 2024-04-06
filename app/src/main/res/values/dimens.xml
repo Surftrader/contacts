@@ -10,12 +10,13 @@
     <dimen name="width_logout_btn">120dp</dimen>
     <dimen name="height_logout_btn">40dp</dimen>
     <dimen name="height_btn">60dp</dimen>
-    <dimen name="width_btn">200dp</dimen>
+    <dimen name="width_btn">220dp</dimen>
 
     <!--  Margins  -->
     <dimen name="small_margin_vertical">8dp</dimen>
     <dimen name="medium_margin_vertical">16dp</dimen>
     <dimen name="medium_margin_horizontal">16dp</dimen>
+    <dimen name="medium2_margin_vertical">22dp</dimen>
     <dimen name="large_margin_vertical">32dp</dimen>
     <dimen name="large_margin_horizontal">32dp</dimen>
     <dimen name="icon_margin_side">60dp</dimen>
