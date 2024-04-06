@@ -10,9 +10,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.contacts.databinding.ActivitySignUpBinding
+import com.example.contacts.util.AppConstants
 import com.example.contacts.util.Parser
 import com.example.contacts.util.Validator
 
+const val FIRST_NAME = "firstName"
+const val LAST_NAME = "lastName"
+const val EMAIL = "email"
+const val PASSWORD = "password"
+const val IS_REMEMBER = "isRemember"
 class SignUpActivity : AppCompatActivity() {
 
     private val binding: ActivitySignUpBinding by lazy {
@@ -32,7 +38,7 @@ class SignUpActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        sharedPref = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
+        sharedPref = getSharedPreferences(AppConstants.STORE, Context.MODE_PRIVATE)
 
         loadData()
 
@@ -70,8 +76,8 @@ class SignUpActivity : AppCompatActivity() {
             this@SignUpActivity,
             MyProfileActivity::class.java
         ).also {
-            it.putExtra("firstName", username.first)
-            it.putExtra("lastName", username.second)
+            it.putExtra(FIRST_NAME, username.first)
+            it.putExtra(LAST_NAME, username.second)
         }
         startActivity(intent)
         finish()
@@ -80,15 +86,15 @@ class SignUpActivity : AppCompatActivity() {
     private fun saveData(isRemember: Boolean, email: String, password: String) {
         sharedPref?.edit()!!
             .apply {
-                putBoolean("isRemember", isRemember)
-                putString("email", email)
-                putString("password", password)
+                putBoolean(IS_REMEMBER, isRemember)
+                putString(EMAIL, email)
+                putString(PASSWORD, password)
             }.apply()
     }
 
     private fun loadData() {
-        if (sharedPref?.getBoolean("isRemember", false)!!) {
-            moveToMyProfile(sharedPref?.getString("email", "")!!)
+        if (sharedPref?.getBoolean(IS_REMEMBER, false)!!) {
+            moveToMyProfile(sharedPref?.getString(EMAIL, "")!!)
         }
     }
 

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.contacts.databinding.ActivityMyProfileBinding
+import com.example.contacts.util.AppConstants
 
 class MyProfileActivity : AppCompatActivity() {
 
@@ -30,7 +31,7 @@ class MyProfileActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        sharedPref = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
+        sharedPref = getSharedPreferences(AppConstants.STORE, Context.MODE_PRIVATE)
 
         binding.textViewName.text = initName()
         binding.btnViewLogout.setOnClickListener { logout() }
@@ -38,9 +39,9 @@ class MyProfileActivity : AppCompatActivity() {
 
     private fun initName(): String {
         return buildString {
-            append(intent.getStringExtra("firstName"))
+            append(intent.getStringExtra(FIRST_NAME))
             append(" ")
-            append(intent.getStringExtra("lastName"))
+            append(intent.getStringExtra(LAST_NAME))
         }
     }
 
