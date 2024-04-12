@@ -27,7 +27,7 @@ class SignUpActivity : AppCompatActivity() {
         )
     }
 
-    private var sharedPref: SharedPreferences? = null
+    private lateinit var sharedPref: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,7 +84,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun saveData(isRemember: Boolean, email: String, password: String) {
-        sharedPref?.edit()!!
+        sharedPref.edit()
             .apply {
                 putBoolean(IS_REMEMBER, isRemember)
                 putString(EMAIL, email)
@@ -93,8 +93,8 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun loadData() {
-        if (sharedPref?.getBoolean(IS_REMEMBER, false)!!) {
-            moveToMyProfile(sharedPref?.getString(EMAIL, "")!!)
+        if (sharedPref.getBoolean(IS_REMEMBER, false)) {
+            sharedPref.getString(EMAIL, "")?.let { moveToMyProfile(it) }
         }
     }
 

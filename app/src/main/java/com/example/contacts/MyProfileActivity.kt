@@ -20,7 +20,7 @@ class MyProfileActivity : AppCompatActivity() {
         )
     }
 
-    private var sharedPref: SharedPreferences? = null
+    private lateinit var sharedPref: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +46,7 @@ class MyProfileActivity : AppCompatActivity() {
     }
 
     private fun logout() {
-        sharedPref?.edit()?.clear()?.apply()
+        sharedPref.edit()?.clear()?.apply()
         val intent = Intent(
             this@MyProfileActivity,
             SignUpActivity::class.java
