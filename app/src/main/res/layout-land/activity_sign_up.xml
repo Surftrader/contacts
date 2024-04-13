@@ -5,27 +5,15 @@
     android:id="@+id/sing_up"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/profile_background"
     tools:context=".SignUpActivity">
 
-    <View
-        android:id="@+id/view_signup_left"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/profile_background"
-        app:layout_constraintEnd_toStartOf="@id/view_signup_right"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
-
-    <View
-        android:id="@+id/view_signup_right"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/profile_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/view_signup_left"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
     <TextView
         android:id="@+id/greetings"
@@ -39,8 +27,8 @@
         app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintBottom_toTopOf="@id/fill_profile"
         app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="@id/view_signup_left"
-        app:layout_constraintEnd_toEndOf="@id/view_signup_left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -52,8 +40,8 @@
         android:textColor="@color/fill_profile_text_color"
         android:textSize="@dimen/label_medium"
         app:layout_constraintBottom_toTopOf="@id/text_view_email"
-        app:layout_constraintStart_toStartOf="@id/view_signup_left"
-        app:layout_constraintEnd_toEndOf="@id/view_signup_left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@id/greetings" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -75,7 +63,7 @@
         app:hintTextAppearance="?attr/textAppearanceBody1"
         app:layout_constraintBottom_toTopOf="@id/text_view_password"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/view_signup_left"
+        app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@id/fill_profile">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -106,7 +94,7 @@
         app:hintTextAppearance="?attr/textAppearanceBody1"
         app:layout_constraintBottom_toTopOf="@id/remember_check_box"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/view_signup_left"
+        app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@id/text_view_email">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -133,7 +121,7 @@
         app:buttonTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/view_signup_left"
+        app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@id/text_view_password" />
 
     <Button
@@ -155,7 +143,7 @@
         app:iconTint="@null"
         app:layout_constraintBottom_toTopOf="@id/text_view_or"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/view_signup_right"
+        app:layout_constraintStart_toStartOf="@id/guideline"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -168,7 +156,7 @@
         android:textSize="@dimen/title_medium"
         app:layout_constraintBottom_toTopOf="@id/register_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/view_signup_right"
+        app:layout_constraintStart_toStartOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@id/google_btn" />
 
     <Button
@@ -186,7 +174,7 @@
         app:cornerRadius="@dimen/radius_btn"
         app:layout_constraintBottom_toTopOf="@id/text_view_conditions"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/view_signup_right"
+        app:layout_constraintStart_toStartOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@id/text_view_or"
         app:strokeColor="@color/btn_color_view_contacts"
         app:strokeWidth="@dimen/btn_outline_width" />
@@ -202,7 +190,7 @@
         android:textSize="@dimen/label_medium"
         app:layout_constraintBottom_toTopOf="@id/text_view_account"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/view_signup_right"
+        app:layout_constraintStart_toStartOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@id/register_btn" />
 
     <TextView
@@ -213,10 +201,10 @@
         android:text="@string/text_account"
         android:textColor="@color/grey"
         android:textSize="@dimen/title_small"
-        app:layout_constraintBottom_toBottomOf="@id/view_signup_right"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintTop_toBottomOf="@id/text_view_conditions"
-        app:layout_constraintStart_toStartOf="@id/view_signup_right"
+        app:layout_constraintStart_toStartOf="@id/guideline"
         app:layout_constraintEnd_toStartOf="@id/text_view_sign_in" />
 
     <TextView
@@ -229,6 +217,6 @@
         android:textSize="@dimen/title_small"
         app:layout_constraintStart_toEndOf="@id/text_view_account"
         app:layout_constraintTop_toBottomOf="@id/text_view_conditions"
-        app:layout_constraintEnd_toEndOf="@id/view_signup_right" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
