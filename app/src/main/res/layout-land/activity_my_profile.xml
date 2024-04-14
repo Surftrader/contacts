@@ -27,7 +27,7 @@
         app:layout_constraintStart_toEndOf="@id/my_profile_up"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_view_settings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_view_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
         app:layout_constraintBottom_toTopOf="@id/text_view_name"
         app:layout_constraintTop_toBottomOf="@id/text_view_settings" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_view_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
         app:layout_constraintBottom_toTopOf="@id/text_view_profession"
         app:layout_constraintTop_toBottomOf="@id/img_view_photo" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_view_profession"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
         app:layout_constraintBottom_toTopOf="@id/text_view_address"
         app:layout_constraintTop_toBottomOf="@id/text_view_name" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_view_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -109,8 +109,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_view_profession" />
 
-    <ImageView
-        android:id="@+id/img_view_facebook"
+    <androidx.appcompat.widget.AppCompatImageView        android:id="@+id/img_view_facebook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/facebook_btn"
@@ -123,8 +122,7 @@
         app:layout_constraintStart_toStartOf="@id/my_profile_down"
         app:srcCompat="@drawable/facebook" />
 
-    <ImageView
-        android:id="@+id/img_view_linkedin"
+    <androidx.appcompat.widget.AppCompatImageView        android:id="@+id/img_view_linkedin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/linkedin_btn"
@@ -135,8 +133,7 @@
         app:layout_constraintTop_toTopOf="@id/img_view_facebook"
         app:srcCompat="@drawable/linkedin" />
 
-    <ImageView
-        android:id="@+id/img_view_instagram"
+    <androidx.appcompat.widget.AppCompatImageView        android:id="@+id/img_view_instagram"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/instagram_btn"
