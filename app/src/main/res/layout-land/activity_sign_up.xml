@@ -5,31 +5,30 @@
     android:id="@+id/sing_up"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/profile_background"
     tools:context=".SignUpActivity">
 
-    <View
-        android:id="@+id/view_signup"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/profile_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
     <TextView
         android:id="@+id/greetings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/large_margin_horizontal"
-        android:layout_marginTop="@dimen/margin_top_greetings"
+        android:layout_marginTop="@dimen/large_margin_vertical"
         android:text="@string/text_greetings"
         android:textColor="@color/greeting_text_color"
         android:textSize="@dimen/headline_small"
+        app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintBottom_toTopOf="@id/fill_profile"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -41,74 +40,77 @@
         android:textColor="@color/fill_profile_text_color"
         android:textSize="@dimen/label_medium"
         app:layout_constraintBottom_toTopOf="@id/text_view_email"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@id/greetings" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_view_email"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/large_margin_horizontal"
         android:layout_marginVertical="@dimen/small_margin_vertical"
         android:hint="@string/e_mail"
         android:textColorHint="@color/grey"
-        app:hintTextAppearance="?attr/textAppearanceBody1"
-        app:cursorColor="@color/white"
         app:boxBackgroundColor="@color/profile_background"
+        app:cursorColor="@color/white"
         app:errorEnabled="true"
         app:expandedHintEnabled="false"
         app:helperText=""
         app:helperTextEnabled="true"
         app:helperTextTextColor="@color/red"
+        app:hintTextAppearance="?attr/textAppearanceBody1"
         app:layout_constraintBottom_toTopOf="@id/text_view_password"
-        app:layout_constraintTop_toBottomOf="@id/fill_profile" >
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline"
+        app:layout_constraintTop_toBottomOf="@id/fill_profile">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_text_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
+            android:text=""
             android:textColor="@color/white"
-            android:textSize="@dimen/title_medium"
-            android:text="" />
+            android:textSize="@dimen/title_medium" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_view_password"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/large_margin_horizontal"
         android:hint="@string/password"
         android:textColorHint="@color/grey"
-        app:hintTextAppearance="?attr/textAppearanceBody1"
-        app:cursorColor="@color/white"
         app:boxBackgroundColor="@color/profile_background"
+        app:cursorColor="@color/white"
         app:errorEnabled="true"
         app:expandedHintEnabled="false"
         app:helperText=""
         app:helperTextEnabled="true"
         app:helperTextTextColor="@color/red"
+        app:hintTextAppearance="?attr/textAppearanceBody1"
         app:layout_constraintBottom_toTopOf="@id/remember_check_box"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@id/text_view_email">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_text_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="@dimen/title_medium"
             android:inputType="textPassword"
-            android:text="" />
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="@dimen/title_medium" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatCheckBox
         android:id="@+id/remember_check_box"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/large_margin_horizontal"
         android:layout_marginTop="@dimen/small_margin_vertical"
         android:button="@drawable/custom_checkbox"
         android:checked="true"
@@ -117,32 +119,32 @@
         android:textColor="@color/grey"
         android:textSize="@dimen/title_small"
         app:buttonTint="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/google_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@id/text_view_password" />
 
     <Button
         android:id="@+id/google_btn"
         style="@style/Widget.MaterialComponents.Button.Icon"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="@dimen/height_btn"
-        android:layout_marginStart="@dimen/large_margin_horizontal"
-        android:layout_marginTop="@dimen/margin_top_google_btn"
-        android:layout_marginEnd="@dimen/large_margin_horizontal"
+        android:layout_marginHorizontal="@dimen/large_margin_horizontal"
         android:backgroundTint="@color/color_btn_google"
         android:text="@string/google"
         android:textAllCaps="true"
         android:textColor="@color/black"
         android:textSize="@dimen/title_medium"
         android:textStyle="bold"
+        app:layout_constraintVertical_chainStyle="packed"
         app:cornerRadius="@dimen/radius_btn"
         app:icon="@drawable/google"
         app:iconGravity="textStart"
         app:iconTint="@null"
         app:layout_constraintBottom_toTopOf="@id/text_view_or"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/remember_check_box" />
+        app:layout_constraintStart_toStartOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_view_or"
@@ -154,17 +156,15 @@
         android:textSize="@dimen/title_medium"
         app:layout_constraintBottom_toTopOf="@id/register_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@id/google_btn" />
 
     <Button
         android:id="@+id/register_btn"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="@dimen/height_btn"
-        android:layout_marginStart="@dimen/large_margin_horizontal"
+        android:layout_marginHorizontal="@dimen/large_margin_horizontal"
         android:layout_marginTop="@dimen/small_margin_vertical"
-        android:layout_marginEnd="@dimen/large_margin_horizontal"
-        android:includeFontPadding="false"
         android:text="@string/register"
         android:textAllCaps="true"
         android:textColor="@color/white"
@@ -174,7 +174,7 @@
         app:cornerRadius="@dimen/radius_btn"
         app:layout_constraintBottom_toTopOf="@id/text_view_conditions"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@id/text_view_or"
         app:strokeColor="@color/btn_color_view_contacts"
         app:strokeWidth="@dimen/btn_outline_width" />
@@ -183,46 +183,40 @@
         android:id="@+id/text_view_conditions"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_text_view_conditions"
         android:layout_marginTop="@dimen/medium_margin_horizontal"
-        android:layout_marginEnd="@dimen/margin_text_view_conditions"
         android:gravity="center"
         android:text="@string/text_conditions"
         android:textColor="@color/white"
         android:textSize="@dimen/label_medium"
         app:layout_constraintBottom_toTopOf="@id/text_view_account"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@id/register_btn" />
 
     <TextView
         android:id="@+id/text_view_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/small_margin_vertical"
-        android:layout_marginBottom="@dimen/small_margin_vertical"
+        android:layout_marginTop="@dimen/large_margin_vertical"
         android:text="@string/text_account"
         android:textColor="@color/grey"
         android:textSize="@dimen/title_small"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/text_view_sign_in"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_view_conditions" />
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintTop_toBottomOf="@id/text_view_conditions"
+        app:layout_constraintStart_toStartOf="@id/guideline"
+        app:layout_constraintEnd_toStartOf="@id/text_view_sign_in" />
 
     <TextView
         android:id="@+id/text_view_sign_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/small_margin_vertical"
-        android:layout_marginBottom="@dimen/small_margin_vertical"
+        android:layout_marginTop="@dimen/large_margin_vertical"
         android:text="@string/sign_in"
         android:textColor="@color/btn_color_view_contacts"
         android:textSize="@dimen/title_small"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@id/text_view_account"
-        app:layout_constraintTop_toBottomOf="@id/text_view_conditions" />
+        app:layout_constraintTop_toBottomOf="@id/text_view_conditions"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

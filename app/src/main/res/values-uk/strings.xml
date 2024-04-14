@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Контакти</string>
+
+    <!--  My profile  -->
+    <string name="text_settings">Налаштування</string>
+    <string name="log_out">Вихід</string>
+    <string name="avatar">avatar</string>
+    <string name="text_profession">Графічний дизайнер</string>
+    <string name="text_view_address">5295 Гейлорд Уокс Ап. 110</string>
+    <string name="facebook_btn">facebook_btn</string>
+    <string name="linkedin_btn">linkedin_btn</string>
+    <string name="instagram_btn">instagram_btn</string>
+    <string name="edit_profile">Редагувати профіль</string>
+    <string name="view_my_contacts">переглянути мої контакти</string>
+
+    <!--  Sign Up  -->
+    <string name="text_greetings">Давай знайомитись</string>
+    <string name="text_fill_profile">Заповнюйте профіль і переходьте до заявки!</string>
+    <string name="password">Пароль</string>
+    <string name="remember_me">Пам\'ятай мене</string>
+    <string name="google">google</string>
+    <string name="or">або</string>
+    <string name="register">зареєструватися</string>
+    <string name="text_conditions">Натиснувши «Зареєструватися», ви погоджуєтеся з нашими положеннями та умовами</string>
+    <string name="text_account">Вже є аккаунт?</string>
+    <string name="sign_in">Увійти</string>
+    <string name="e_mail">E-mail</string>
+    <string name="incorrect_email">Неправильний формат електронної пошти</string>
+    <string name="incorrect_password">Пароль повинен містити від 8 до 20 літер</string>
+
+</resources>
