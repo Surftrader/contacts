@@ -15,7 +15,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/greetings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/fill_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -146,7 +146,7 @@
         app:layout_constraintStart_toStartOf="@id/guideline"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_view_or"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -179,7 +179,7 @@
         app:strokeColor="@color/btn_color_view_contacts"
         app:strokeWidth="@dimen/btn_outline_width" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_view_conditions"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -193,7 +193,7 @@
         app:layout_constraintStart_toStartOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@id/register_btn" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_view_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -207,7 +207,7 @@
         app:layout_constraintStart_toStartOf="@id/guideline"
         app:layout_constraintEnd_toStartOf="@id/text_view_sign_in" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_view_sign_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
