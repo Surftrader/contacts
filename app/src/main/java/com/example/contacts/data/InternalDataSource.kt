@@ -2,7 +2,6 @@ package com.example.contacts.data
 
 import com.example.contacts.R
 import com.example.contacts.model.Contact
-import com.example.contacts.model.User
 
 public class InternalDataSource : DataSource<Contact> {
     override fun getContacts(): List<Contact> {
