@@ -14,9 +14,12 @@
 
     <!--  Margins  -->
     <dimen name="small_margin_vertical">8dp</dimen>
-    <dimen name="medium_margin_vertical">16dp</dimen>
+    <dimen name="small_margin_horizontal">8dp</dimen>
+    <dimen name="medium_margin_vertical">12dp</dimen>
+    <dimen name="medium1_margin_vertical">16dp</dimen>
     <dimen name="medium_margin_horizontal">16dp</dimen>
     <dimen name="medium2_margin_vertical">22dp</dimen>
+    <dimen name="medium3_margin_vertical">26dp</dimen>
     <dimen name="large_margin_vertical">32dp</dimen>
     <dimen name="large_margin_horizontal">32dp</dimen>
     <dimen name="icon_margin_side">60dp</dimen>
@@ -32,4 +35,8 @@
     <dimen name="radius_btn">8dp</dimen>
     <dimen name="width_edit_text_email">240dp</dimen>
     <dimen name="width_edit_text_password">240dp</dimen>
+    <dimen name="small_padding_horizontal">8dp</dimen>
+    <dimen name="header_height">160dp</dimen>
+    <dimen name="radius_contact_frame">6dp</dimen>
+    <dimen name="ava_size">50dp</dimen>
 </resources>
