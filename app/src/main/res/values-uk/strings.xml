@@ -28,4 +28,11 @@
     <string name="incorrect_email">Неправильний формат електронної пошти</string>
     <string name="incorrect_password">Пароль повинен містити від 8 до 20 літер</string>
 
+    <!--  Contacts  -->
+    <string name="trash">trash</string>
+    <string name="back_arrow">назад</string>
+    <string name="text_contacts">Контакти</string>
+    <string name="btn_search">пошук</string>
+    <string name="add_contacts">Додати контакт</string>
+
 </resources>

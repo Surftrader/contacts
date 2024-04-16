@@ -35,6 +35,16 @@ class MyProfileActivity : AppCompatActivity() {
 
         binding.textViewName.text = initName()
         binding.btnViewLogout.setOnClickListener { logout() }
+        binding.btnContacts.setOnClickListener { showContacts() }
+    }
+
+    private fun showContacts() {
+        val intent = Intent(
+            this@MyProfileActivity,
+            MyContactsActivity::class.java
+        )
+        startActivity(intent)
+        finish()
     }
 
     private fun initName(): String {
