@@ -61,6 +61,7 @@
         android:layout_width="@dimen/img_size"
         android:layout_height="@dimen/img_size"
         android:contentDescription="@string/avatar"
+        android:scaleType="centerCrop"
         android:src="@drawable/ava"
         app:shapeAppearanceOverlay="@style/roundedImageView"
         app:layout_constraintVertical_chainStyle="packed"

@@ -34,5 +34,6 @@
     <string name="text_contacts">Контакти</string>
     <string name="btn_search">пошук</string>
     <string name="add_contacts">Додати контакт</string>
+    <string name="item_background">item background</string>
 
 </resources>
