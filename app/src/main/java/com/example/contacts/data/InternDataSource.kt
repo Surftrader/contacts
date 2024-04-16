@@ -3,7 +3,7 @@ package com.example.contacts.data
 import com.example.contacts.R
 import com.example.contacts.model.Contact
 
-public class InternalDataSource : DataSource<Contact> {
+class InternDataSource : DataSource<Contact> {
     override fun getContacts(): List<Contact> {
         return List(10) {
             Contact(
