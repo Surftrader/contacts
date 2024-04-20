@@ -14,11 +14,11 @@ import com.example.contacts.util.AppConstants
 import com.example.contacts.util.Parser
 import com.example.contacts.util.Validator
 
-const val FIRST_NAME = "firstName"
-const val LAST_NAME = "lastName"
+const val FULL_NAME = "fullName"
 const val EMAIL = "email"
 const val PASSWORD = "password"
 const val IS_REMEMBER = "isRemember"
+
 class SignUpActivity : AppCompatActivity() {
 
     private val binding: ActivitySignUpBinding by lazy {
@@ -66,35 +66,39 @@ class SignUpActivity : AppCompatActivity() {
 
         if (validEmail && validPassword) {
             saveData(rememberCheckBox.isChecked, email, password)
-            moveToMyProfile(email)
+            moveToMyProfile()
         }
     }
 
-    private fun moveToMyProfile(email: String) {
-        val username = Parser.getUsername(email)
+    private fun moveToMyProfile() {
         val intent = Intent(
             this@SignUpActivity,
             MyProfileActivity::class.java
-        ).also {
-            it.putExtra(FIRST_NAME, username.first)
-            it.putExtra(LAST_NAME, username.second)
-        }
+        )
         startActivity(intent)
         finish()
     }
 
     private fun saveData(isRemember: Boolean, email: String, password: String) {
+        val username = Parser.getUsername(email)
         sharedPref.edit()
             .apply {
                 putBoolean(IS_REMEMBER, isRemember)
                 putString(EMAIL, email)
                 putString(PASSWORD, password)
+                putString(FULL_NAME,
+                    buildString {
+                        append(username.first)
+                        append(" ")
+                        append(username.second)
+                    }
+                )
             }.apply()
     }
 
     private fun loadData() {
         if (sharedPref.getBoolean(IS_REMEMBER, false)) {
-            sharedPref.getString(EMAIL, "")?.let { moveToMyProfile(it) }
+            sharedPref.getString(EMAIL, "")?.let { moveToMyProfile() }
         }
     }
 

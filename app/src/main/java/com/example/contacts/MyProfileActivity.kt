@@ -48,11 +48,7 @@ class MyProfileActivity : AppCompatActivity() {
     }
 
     private fun initName(): String {
-        return buildString {
-            append(intent.getStringExtra(FIRST_NAME))
-            append(" ")
-            append(intent.getStringExtra(LAST_NAME))
-        }
+        return sharedPref.getString(FULL_NAME, "").toString()
     }
 
     private fun logout() {
