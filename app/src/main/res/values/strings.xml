@@ -36,4 +36,12 @@
     <string name="add_contacts">Add contacts</string>
     <string name="item_background">item background</string>
 
+    <!--  Edit profile  -->
+    <string name="username">Username</string>
+    <string name="career">Career</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="save">SAVE</string>
+
 </resources>

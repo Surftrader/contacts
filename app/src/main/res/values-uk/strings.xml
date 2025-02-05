@@ -36,4 +36,12 @@
     <string name="add_contacts">Додати контакт</string>
     <string name="item_background">item background</string>
 
+    <!--  Edit profile  -->
+    <string name="username">Ім\'я користувача</string>
+    <string name="career">Кар\'єра</string>
+    <string name="phone">Телефон</string>
+    <string name="address">Адреса</string>
+    <string name="date_of_birth">Дата народження</string>
+    <string name="save">Зберегти</string>
+
 </resources>

@@ -11,6 +11,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.contacts.databinding.ActivityMyProfileBinding
 import com.example.contacts.util.AppConstants
+import com.example.contacts.util.GlideDownloader
+import com.example.contacts.util.ImageDownloader
+import com.example.contacts.util.PicassoDownloader
 
 class MyProfileActivity : AppCompatActivity() {
 
@@ -21,6 +24,10 @@ class MyProfileActivity : AppCompatActivity() {
     }
 
     private lateinit var sharedPref: SharedPreferences
+
+    private val url = "https://poseal.com.ua/static/img/ava.jpg"
+
+    private lateinit var imageDownloader: ImageDownloader
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,9 +40,28 @@ class MyProfileActivity : AppCompatActivity() {
         }
         sharedPref = getSharedPreferences(AppConstants.STORE, Context.MODE_PRIVATE)
 
-        binding.textViewName.text = initName()
-        binding.btnViewLogout.setOnClickListener { logout() }
-        binding.btnContacts.setOnClickListener { showContacts() }
+        with(binding) {
+            textViewName.text = initName()
+            btnViewLogout.setOnClickListener { logout() }
+            btnContacts.setOnClickListener { showContacts() }
+            btnEdit.setOnClickListener { showEditPage() }
+        }
+        // Glide
+        imageDownloader = GlideDownloader(this)
+        // Picasso
+        // imageDownloader = PicassoDownloader(url, binding.imgViewPhoto)
+
+        imageDownloader.downloadImage(url, binding.imgViewPhoto)
+
+    }
+
+    private fun showEditPage() {
+        val intent = Intent(
+            this@MyProfileActivity,
+            EditProfileActivity::class.java
+        )
+        startActivity(intent)
+        finish()
     }
 
     private fun showContacts() {
@@ -66,10 +92,10 @@ class MyProfileActivity : AppCompatActivity() {
         super.finish()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
             overrideActivityTransition(
-                OVERRIDE_TRANSITION_OPEN, R.anim.slide_in_left, R.anim.slide_out_right
+                OVERRIDE_TRANSITION_OPEN, R.anim.slide_in_right, R.anim.slide_out_left
             )
         } else {
-            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
     }
 }

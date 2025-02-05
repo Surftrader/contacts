@@ -73,6 +73,7 @@
         android:layout_marginTop="100dp"
         android:layout_marginStart="24dp"
         android:src="@drawable/icon_add_photo"
+        android:clickable="true"
         app:layout_constraintStart_toEndOf="@+id/img_view_photo"
         app:layout_constraintTop_toTopOf="parent" />
 
