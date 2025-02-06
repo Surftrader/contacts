@@ -35,6 +35,7 @@
     <string name="btn_search">пошук</string>
     <string name="add_contacts">Додати контакт</string>
     <string name="item_background">item background</string>
+    <string name="contact_removed">контакт видалено</string>
 
     <!--  Edit profile  -->
     <string name="username">Ім\'я користувача</string>

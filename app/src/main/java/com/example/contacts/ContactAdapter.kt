@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.contacts.databinding.ContactItemBinding
 import com.example.contacts.model.Contact
 
-class ContactAdapter(private val contactList: List<Contact>) : ListAdapter<Contact, ContactAdapter.ContactHolder>(ContactDiffCallBack()) {
+class ContactAdapter(
+    private val onClickDelete: (Int) -> Unit
+) : ListAdapter<Contact, ContactAdapter.ContactHolder>(ContactDiffCallBack()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactHolder {
         return ContactHolder(
@@ -19,32 +21,25 @@ class ContactAdapter(private val contactList: List<Contact>) : ListAdapter<Conta
         )
     }
 
-    override fun getItemCount(): Int {
-        return contactList.size
-    }
-
     override fun onBindViewHolder(holder: ContactHolder, position: Int) {
-        holder.bind(contactList[position])
+        holder.bind(getItem(position), position)
     }
 
     private class ContactDiffCallBack : DiffUtil.ItemCallback<Contact>() {
-        override fun areItemsTheSame(oldItem: Contact, newItem: Contact):
-                Boolean = oldItem.email == newItem.email
+        override fun areItemsTheSame(oldItem: Contact, newItem: Contact): Boolean =
+            oldItem.email == newItem.email
 
-        override fun areContentsTheSame(oldItem: Contact, newItem: Contact):
-                Boolean = oldItem == newItem
+        override fun areContentsTheSame(oldItem: Contact, newItem: Contact): Boolean =
+            oldItem == newItem
     }
 
-    class ContactHolder(item: View) : RecyclerView.ViewHolder(item) {
+    inner class ContactHolder(item: View) : RecyclerView.ViewHolder(item) {
         private val binding = ContactItemBinding.bind(item)
 
-        fun bind(contact: Contact) = with(binding) {
+        fun bind(contact: Contact, index: Int) = with(binding) {
             photoContact.setImageResource(contact.imageId)
-            nameContact.text = buildString {
-                append(contact.firstName)
-                append(" ")
-                append(contact.lastName)
-            }
+            "${contact.firstName} ${contact.lastName}".also { nameContact.text = it }
+            icTrash.setOnClickListener { onClickDelete(index) }
         }
     }
 }
