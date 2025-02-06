@@ -6,16 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.contacts.data.DataSource
-import com.example.contacts.data.InternDataSource
 import com.example.contacts.databinding.ContactItemBinding
 import com.example.contacts.model.Contact
 
-class ContactAdapter : ListAdapter<Contact, ContactAdapter.ContactHolder>(ContactDiffCallBack()) {
-
-    private val dataSource: DataSource<Contact> = InternDataSource()
-    private val contactList: List<Contact> = dataSource.getContacts()
-
+class ContactAdapter(private val contactList: List<Contact>) : ListAdapter<Contact, ContactAdapter.ContactHolder>(ContactDiffCallBack()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactHolder {
         return ContactHolder(

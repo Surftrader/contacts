@@ -8,7 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.contacts.data.DataSource
+import com.example.contacts.data.InternDataSource
 import com.example.contacts.databinding.ActivityMyContactsBinding
+import com.example.contacts.model.Contact
 
 class MyContactsActivity : AppCompatActivity() {
 
@@ -18,7 +21,8 @@ class MyContactsActivity : AppCompatActivity() {
         )
     }
 
-    private val adapter = ContactAdapter()
+    private lateinit var dataSource: DataSource<Contact>
+    private lateinit var adapter: ContactAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +33,10 @@ class MyContactsActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        dataSource = InternDataSource()
+        adapter = ContactAdapter(dataSource.getContacts())
+
         init()
     }
 
