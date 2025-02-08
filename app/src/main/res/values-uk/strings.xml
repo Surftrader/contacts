@@ -51,5 +51,6 @@
     <string name="full_name_hint">%1$s %2$s</string>
     <string name="required_fields">Заповніть обов\'язкові поля</string>
     <string name="add_photo">додати фото</string>
+    <string name="cancel">Відмінити</string>
 
 </resources>

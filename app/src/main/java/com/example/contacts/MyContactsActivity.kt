@@ -3,7 +3,6 @@ package com.example.contacts
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -13,6 +12,7 @@ import com.example.contacts.data.DataSource
 import com.example.contacts.data.InternDataSource
 import com.example.contacts.databinding.ActivityMyContactsBinding
 import com.example.contacts.model.Contact
+import com.google.android.material.snackbar.Snackbar
 
 const val ADD_CONTACT_DIALOG = "AddContactDialog"
 
@@ -47,10 +47,27 @@ class MyContactsActivity : AppCompatActivity(), AddContactDialogFragment.OnConta
     }
 
     private fun deleteItem(index: Int) {
-        if (::contactList.isInitialized && ::adapter.isInitialized) {
-            Toast.makeText(applicationContext, R.string.contact_removed, Toast.LENGTH_SHORT).show()
-            contactList = contactList.toMutableList().apply { removeAt(index) }
-            adapter.submitList(contactList.toList())
+        val removedContact = contactList[index]
+
+        contactList.removeAt(index)
+        adapter.notifyItemRemoved(index)
+
+        Snackbar.make(
+            binding.root,
+            getString(R.string.contact_removed),
+            Snackbar.LENGTH_LONG
+        ).apply {
+            setAction(getString(R.string.cancel)) {
+                if (index <= contactList.size) {
+                    contactList.add(index, removedContact)
+                    adapter.notifyItemInserted(index)
+                } else {
+                    contactList.add(removedContact)
+                    adapter.notifyItemInserted(contactList.size - 1)
+                }
+            }
+            duration = 5000
+            show()
         }
     }
 

@@ -51,5 +51,6 @@
     <string name="full_name_hint">%1$s %2$s</string>
     <string name="required_fields">Fill in the required fields</string>
     <string name="add_photo">add photo</string>
+    <string name="cancel">Cancel</string>
 
 </resources>
