@@ -37,12 +37,19 @@
     <string name="item_background">item background</string>
     <string name="contact_removed">контакт видалено</string>
 
-    <!--  Edit profile  -->
-    <string name="username">Ім\'я користувача</string>
+    <!--  Edit profile, Add contact  -->
+    <string name="username">Ім\'я користувача*</string>
     <string name="career">Кар\'єра</string>
-    <string name="phone">Телефон</string>
+    <string name="phone">Телефон*</string>
     <string name="address">Адреса</string>
     <string name="date_of_birth">Дата народження</string>
     <string name="save">Зберегти</string>
+    <string name="name">Им\'я</string>
+    <string name="surname">Прізвище</string>
+    <string name="email">Email*</string>
+    <string name="add_contact">Додати контакт</string>
+    <string name="full_name_hint">%1$s %2$s</string>
+    <string name="required_fields">Заповніть обов\'язкові поля</string>
+    <string name="add_photo">додати фото</string>
 
 </resources>

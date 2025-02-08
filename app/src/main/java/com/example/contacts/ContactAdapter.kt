@@ -39,6 +39,7 @@ class ContactAdapter(
         fun bind(contact: Contact, index: Int) = with(binding) {
             photoContact.setImageResource(contact.imageId)
             "${contact.firstName} ${contact.lastName}".also { nameContact.text = it }
+            contact.profession.also { professionContact.text = it }
             icTrash.setOnClickListener { onClickDelete(index) }
         }
     }

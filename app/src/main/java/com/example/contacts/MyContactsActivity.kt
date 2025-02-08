@@ -14,7 +14,9 @@ import com.example.contacts.data.InternDataSource
 import com.example.contacts.databinding.ActivityMyContactsBinding
 import com.example.contacts.model.Contact
 
-class MyContactsActivity : AppCompatActivity() {
+const val ADD_CONTACT_DIALOG = "AddContactDialog"
+
+class MyContactsActivity : AppCompatActivity(), AddContactDialogFragment.OnContactAddedListener {
 
     private val binding: ActivityMyContactsBinding by lazy {
         ActivityMyContactsBinding.inflate(layoutInflater)
@@ -39,7 +41,7 @@ class MyContactsActivity : AppCompatActivity() {
         contactList = dataSource.getContacts().toMutableList()
 
         adapter = ContactAdapter { index -> deleteItem(index) }
-        adapter.submitList(contactList) // Set contacts
+        adapter.submitList(contactList)
 
         init()
     }
@@ -47,9 +49,8 @@ class MyContactsActivity : AppCompatActivity() {
     private fun deleteItem(index: Int) {
         if (::contactList.isInitialized && ::adapter.isInitialized) {
             Toast.makeText(applicationContext, R.string.contact_removed, Toast.LENGTH_SHORT).show()
-
             contactList = contactList.toMutableList().apply { removeAt(index) }
-            adapter.submitList(contactList.toList()) // Update contacts in adapter
+            adapter.submitList(contactList.toList())
         }
     }
 
@@ -58,6 +59,18 @@ class MyContactsActivity : AppCompatActivity() {
         rcvContacts.adapter = adapter
 
         arrowBack.setOnClickListener { goBack() }
+        addContacts.setOnClickListener { showAddContactDialog() } // Call DialogFragment
+    }
+
+    private fun showAddContactDialog() {
+        AddContactDialogFragment().show(supportFragmentManager, ADD_CONTACT_DIALOG)
+    }
+
+    override fun onContactAdded(contact: Contact) {
+        contactList = contactList.toMutableList().apply { add(contact) }
+        adapter.submitList(contactList.toList()) {
+            binding.rcvContacts.scrollToPosition(contactList.size - 1)
+        }
     }
 
     private fun goBack() {

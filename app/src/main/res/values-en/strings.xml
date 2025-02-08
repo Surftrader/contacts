@@ -37,12 +37,19 @@
     <string name="item_background">item background</string>
     <string name="contact_removed">contact has been removed</string>
 
-    <!--  Edit profile  -->
-    <string name="username">Username</string>
+    <!--  Edit profile, Add contact  -->
+    <string name="username">Username*</string>
     <string name="career">Career</string>
-    <string name="phone">Phone</string>
+    <string name="phone">Phone*</string>
     <string name="address">Address</string>
     <string name="date_of_birth">Date of birth</string>
     <string name="save">SAVE</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="email">Email*</string>
+    <string name="add_contact">Add contact</string>
+    <string name="full_name_hint">%1$s %2$s</string>
+    <string name="required_fields">Fill in the required fields</string>
+    <string name="add_photo">add photo</string>
 
 </resources>

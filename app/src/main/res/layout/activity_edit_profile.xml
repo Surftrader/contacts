@@ -74,6 +74,7 @@
         android:layout_marginStart="24dp"
         android:src="@drawable/icon_add_photo"
         android:clickable="true"
+        android:contentDescription="@string/add_photo"
         app:layout_constraintStart_toEndOf="@+id/img_view_photo"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -99,9 +100,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="Sergiy Poddubka"
             android:textColor="@color/black"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="Sergiy Poddubka" />
 
         <View
             android:layout_width="match_parent"
@@ -119,9 +120,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="Java Developer"
             android:textColor="@color/black"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="Java Developer" />
 
         <View
             android:layout_width="match_parent"
@@ -139,9 +140,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="(264)-654-3452"
             android:textColor="@color/black"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="(264)-654-3452" />
 
         <View
             android:layout_width="match_parent"
@@ -159,9 +160,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="5295 Gaylord Walks Apk. 110"
             android:textColor="@color/black"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="5295 Gaylord Walks Apk. 110" />
 
         <View
             android:layout_width="match_parent"
@@ -179,9 +180,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="12/05/1994"
             android:textColor="@color/black"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="12/05/1994" />
 
         <View
             android:layout_width="match_parent"
