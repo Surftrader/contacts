@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.example.contacts.data.DataSource
 import com.example.contacts.data.InternDataSource
 import com.example.contacts.databinding.ActivityMyContactsBinding
@@ -44,6 +46,7 @@ class MyContactsActivity : AppCompatActivity(), AddContactDialogFragment.OnConta
         adapter.submitList(contactList)
 
         init()
+        initSwipeToDelete()
     }
 
     private fun deleteItem(index: Int) {
@@ -105,5 +108,25 @@ class MyContactsActivity : AppCompatActivity(), AddContactDialogFragment.OnConta
         } else {
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
         }
+    }
+
+    private fun initSwipeToDelete() {
+        val swipeToDeleteCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.adapterPosition
+                deleteItem(position)
+            }
+        }
+
+        val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallback)
+        itemTouchHelper.attachToRecyclerView(binding.rcvContacts)
     }
 }
