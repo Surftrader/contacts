@@ -5,7 +5,7 @@
     android:id="@+id/edit_profile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyProfileActivity">
+    tools:context=".screens.profile.MyProfileActivity">
 
     <View
         android:id="@+id/edit_profile_up"

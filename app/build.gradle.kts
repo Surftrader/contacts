@@ -47,11 +47,15 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
-    //Glide
+    // Glide
     implementation(libs.glide)
     annotationProcessor(libs.compiler)
     // Picasso
     implementation(libs.picasso)
+
+    // Viewmodel
+    implementation(libs.androidx.activity.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -1,10 +1,11 @@
 package com.example.contacts.model
 
 import androidx.annotation.DrawableRes
+import com.example.contacts.R
 
 data class Contact (
     @DrawableRes
-    val imageId: Int = -1,
+    val imageId: Int = R.drawable.ic_error,
     val email: String = "",
     val firstName: String = "",
     val lastName: String = "",

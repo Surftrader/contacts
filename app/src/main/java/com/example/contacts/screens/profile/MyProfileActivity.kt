@@ -1,4 +1,4 @@
-package com.example.contacts
+package com.example.contacts.screens.profile
 
 import android.content.Context
 import android.content.Intent
@@ -9,11 +9,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.contacts.R
 import com.example.contacts.databinding.ActivityMyProfileBinding
+import com.example.contacts.screens.auth.FULL_NAME
+import com.example.contacts.screens.auth.SignUpActivity
+import com.example.contacts.screens.contacts.MyContactsActivity
 import com.example.contacts.util.AppConstants
 import com.example.contacts.util.GlideDownloader
 import com.example.contacts.util.ImageDownloader
-import com.example.contacts.util.PicassoDownloader
 
 class MyProfileActivity : AppCompatActivity() {
 

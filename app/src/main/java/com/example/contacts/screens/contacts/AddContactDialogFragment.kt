@@ -1,4 +1,4 @@
-package com.example.contacts
+package com.example.contacts.screens.contacts
 
 import android.content.Context
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import com.example.contacts.R
 import com.example.contacts.databinding.DialogAddContactBinding
 import com.example.contacts.model.Contact
 

@@ -1,12 +1,14 @@
-package com.example.contacts
+package com.example.contacts.screens.profile
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.contacts.R
 import com.example.contacts.databinding.ActivityEditProfileBinding
 import com.example.contacts.util.AppConstants
 
@@ -31,7 +33,17 @@ class EditProfileActivity : AppCompatActivity() {
         sharedPref = getSharedPreferences(AppConstants.STORE, Context.MODE_PRIVATE)
 
         binding.iconAddPhoto.setOnClickListener { changePhoto() }
+        binding.editArrowBack.setOnClickListener { backToProfile() }
 
+    }
+
+    private fun backToProfile() {
+        val intent = Intent(
+            this@EditProfileActivity,
+            MyProfileActivity::class.java
+        )
+        startActivity(intent)
+        finish()
     }
 
     private fun changePhoto() {

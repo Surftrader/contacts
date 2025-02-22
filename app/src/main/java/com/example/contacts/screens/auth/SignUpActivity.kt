@@ -1,4 +1,4 @@
-package com.example.contacts
+package com.example.contacts.screens.auth
 
 import android.content.Context
 import android.content.Intent
@@ -9,6 +9,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.contacts.screens.profile.MyProfileActivity
+import com.example.contacts.R
 import com.example.contacts.databinding.ActivitySignUpBinding
 import com.example.contacts.util.AppConstants
 import com.example.contacts.util.Parser
@@ -86,7 +88,8 @@ class SignUpActivity : AppCompatActivity() {
                 putBoolean(IS_REMEMBER, isRemember)
                 putString(EMAIL, email)
                 putString(PASSWORD, password)
-                putString(FULL_NAME,
+                putString(
+                    FULL_NAME,
                     buildString {
                         append(username.first)
                         append(" ")
