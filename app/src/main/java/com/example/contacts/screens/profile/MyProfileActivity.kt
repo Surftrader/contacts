@@ -15,8 +15,7 @@ import com.example.contacts.screens.auth.FULL_NAME
 import com.example.contacts.screens.auth.SignUpActivity
 import com.example.contacts.screens.contacts.MyContactsActivity
 import com.example.contacts.util.AppConstants
-import com.example.contacts.util.GlideDownloader
-import com.example.contacts.util.ImageDownloader
+import com.example.contacts.util.loadImage
 
 class MyProfileActivity : AppCompatActivity() {
 
@@ -29,8 +28,6 @@ class MyProfileActivity : AppCompatActivity() {
     private lateinit var sharedPref: SharedPreferences
 
     private val url = "https://poseal.com.ua/static/img/ava.jpg"
-
-    private lateinit var imageDownloader: ImageDownloader
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,13 +46,11 @@ class MyProfileActivity : AppCompatActivity() {
             btnContacts.setOnClickListener { showContacts() }
             btnEdit.setOnClickListener { showEditPage() }
         }
+
         // Glide
-        imageDownloader = GlideDownloader(this)
+        binding.imgViewPhoto.loadImage(url)
         // Picasso
-        // imageDownloader = PicassoDownloader(url, binding.imgViewPhoto)
-
-        imageDownloader.downloadImage(url, binding.imgViewPhoto)
-
+        //binding.imgViewPhoto.loadImage(url, useGlide = false)
     }
 
     private fun showEditPage() {
