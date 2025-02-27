@@ -20,7 +20,10 @@ class EditProfileActivity : AppCompatActivity() {
         )
     }
 
-    private lateinit var sharedPref: SharedPreferences
+    private val sharedPref: SharedPreferences by lazy {
+        getSharedPreferences(AppConstants.STORE, Context.MODE_PRIVATE)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -30,7 +33,6 @@ class EditProfileActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        sharedPref = getSharedPreferences(AppConstants.STORE, Context.MODE_PRIVATE)
 
         binding.iconAddPhoto.setOnClickListener { changePhoto() }
         binding.editArrowBack.setOnClickListener { backToProfile() }

@@ -29,7 +29,9 @@ class SignUpActivity : AppCompatActivity() {
         )
     }
 
-    private lateinit var sharedPref: SharedPreferences
+    private val sharedPref: SharedPreferences by lazy {
+        getSharedPreferences(AppConstants.STORE, Context.MODE_PRIVATE)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +42,6 @@ class SignUpActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        sharedPref = getSharedPreferences(AppConstants.STORE, Context.MODE_PRIVATE)
 
         loadData()
 

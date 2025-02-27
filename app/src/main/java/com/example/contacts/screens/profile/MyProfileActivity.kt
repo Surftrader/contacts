@@ -25,7 +25,9 @@ class MyProfileActivity : AppCompatActivity() {
         )
     }
 
-    private lateinit var sharedPref: SharedPreferences
+    private val sharedPref: SharedPreferences by lazy {
+        getSharedPreferences(AppConstants.STORE, Context.MODE_PRIVATE)
+    }
 
     private val url = "https://poseal.com.ua/static/img/ava.jpg"
 
@@ -38,7 +40,6 @@ class MyProfileActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        sharedPref = getSharedPreferences(AppConstants.STORE, Context.MODE_PRIVATE)
 
         with(binding) {
             textViewName.text = initName()
