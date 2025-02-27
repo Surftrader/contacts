@@ -1,25 +1,17 @@
 package com.example.contacts.screens.auth
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.contacts.screens.profile.MyProfileActivity
 import com.example.contacts.R
 import com.example.contacts.databinding.ActivitySignUpBinding
-import com.example.contacts.util.AppConstants
-import com.example.contacts.util.Parser
+import com.example.contacts.screens.profile.MyProfileActivity
+import com.example.contacts.util.PreferencesManager
 import com.example.contacts.util.Validator
-
-const val FULL_NAME = "fullName"
-const val EMAIL = "email"
-const val PASSWORD = "password"
-const val IS_REMEMBER = "isRemember"
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -29,8 +21,8 @@ class SignUpActivity : AppCompatActivity() {
         )
     }
 
-    private val sharedPref: SharedPreferences by lazy {
-        getSharedPreferences(AppConstants.STORE, Context.MODE_PRIVATE)
+    private val preferencesManager: PreferencesManager by lazy {
+        PreferencesManager(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,7 +60,7 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         if (validEmail && validPassword) {
-            saveData(rememberCheckBox.isChecked, email, password)
+            preferencesManager.saveData(rememberCheckBox.isChecked, email, password)
             moveToMyProfile()
         }
     }
@@ -82,27 +74,9 @@ class SignUpActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun saveData(isRemember: Boolean, email: String, password: String) {
-        val username = Parser.getUsername(email)
-        sharedPref.edit()
-            .apply {
-                putBoolean(IS_REMEMBER, isRemember)
-                putString(EMAIL, email)
-                putString(PASSWORD, password)
-                putString(
-                    FULL_NAME,
-                    buildString {
-                        append(username.first)
-                        append(" ")
-                        append(username.second)
-                    }
-                )
-            }.apply()
-    }
-
     private fun loadData() {
-        if (sharedPref.getBoolean(IS_REMEMBER, false)) {
-            sharedPref.getString(EMAIL, "")?.let { moveToMyProfile() }
+        if (preferencesManager.loadData()) {
+            preferencesManager.getEmail()?.let { moveToMyProfile() }
         }
     }
 

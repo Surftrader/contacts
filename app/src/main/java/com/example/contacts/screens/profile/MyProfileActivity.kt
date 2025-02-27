@@ -1,8 +1,6 @@
 package com.example.contacts.screens.profile
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -11,10 +9,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.contacts.R
 import com.example.contacts.databinding.ActivityMyProfileBinding
-import com.example.contacts.screens.auth.FULL_NAME
 import com.example.contacts.screens.auth.SignUpActivity
 import com.example.contacts.screens.contacts.MyContactsActivity
-import com.example.contacts.util.AppConstants
+import com.example.contacts.util.PreferencesManager
 import com.example.contacts.util.loadImage
 
 class MyProfileActivity : AppCompatActivity() {
@@ -25,8 +22,8 @@ class MyProfileActivity : AppCompatActivity() {
         )
     }
 
-    private val sharedPref: SharedPreferences by lazy {
-        getSharedPreferences(AppConstants.STORE, Context.MODE_PRIVATE)
+    private val preferencesManager: PreferencesManager by lazy {
+        PreferencesManager(this)
     }
 
     private val url = "https://poseal.com.ua/static/img/ava.jpg"
@@ -42,7 +39,7 @@ class MyProfileActivity : AppCompatActivity() {
         }
 
         with(binding) {
-            textViewName.text = initName()
+            textViewName.text = preferencesManager.getFullName()
             btnViewLogout.setOnClickListener { logout() }
             btnContacts.setOnClickListener { showContacts() }
             btnEdit.setOnClickListener { showEditPage() }
@@ -72,12 +69,8 @@ class MyProfileActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun initName(): String {
-        return sharedPref.getString(FULL_NAME, "").toString()
-    }
-
     private fun logout() {
-        sharedPref.edit()?.clear()?.apply()
+        preferencesManager.clearData()
         val intent = Intent(
             this@MyProfileActivity,
             SignUpActivity::class.java
