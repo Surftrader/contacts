@@ -1,6 +1,5 @@
 package com.example.contacts.screens.contacts
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,15 +20,6 @@ class AddContactDialogFragment : DialogFragment() {
     private val binding get() = _binding!!
 
     private var listener: OnContactAddedListener? = null
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is OnContactAddedListener) {
-            listener = context
-        } else {
-            throw ClassCastException("$context must implement OnContactAddedListener")
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
