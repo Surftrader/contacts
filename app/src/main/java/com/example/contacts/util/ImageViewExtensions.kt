@@ -9,12 +9,12 @@ fun ImageView.loadImage(url: String, useGlide: Boolean = true) {
     if (useGlide) {
         Glide.with(context)
             .load(url)
-            .error(R.drawable.ic_error)
+            .error(R.drawable.ic_person)
             .into(this)
     } else {
         Picasso.get()
             .load(url)
-            .error(R.drawable.ic_error)
+            .error(R.drawable.ic_person)
             .into(this)
     }
 }

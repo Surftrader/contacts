@@ -64,7 +64,7 @@ class AddContactDialogFragment : DialogFragment() {
                     mobile = phone,
                     career = career,
                     profession = career,
-                    imageId = R.drawable.ic_error
+                    imageId = R.drawable.ic_person
                 )
                 listener?.onContactAdded(newContact)
                 dismiss()

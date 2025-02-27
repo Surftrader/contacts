@@ -5,7 +5,7 @@ import com.example.contacts.R
 
 data class Contact (
     @DrawableRes
-    val imageId: Int = R.drawable.ic_error,
+    val imageId: Int = R.drawable.ic_person,
     val email: String = "",
     val firstName: String = "",
     val lastName: String = "",
