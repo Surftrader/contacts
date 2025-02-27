@@ -41,12 +41,21 @@ class AddContactDialogFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setLayoutParams()
+        inflateText()
+        initClickListeners()
+    }
 
+    private fun setLayoutParams() {
         dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+    }
 
+    private fun inflateText() {
         val hint = getString(R.string.full_name_hint, getString(R.string.name), getString(R.string.surname))
         binding.editFullname.hint = hint
+    }
 
+    private fun initClickListeners() {
         binding.btnSave.setOnClickListener {
             val fullName = binding.editFullname.text.toString().trim()
             val names = fullName.split(" ")
