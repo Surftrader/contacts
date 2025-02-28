@@ -16,7 +16,7 @@ class ContactViewModel : ViewModel() {
         _contacts.value = _contacts.value?.filter { it.email != contact.email }
     }
 
-    fun addContact(contact: Contact, position: Int) {
+    fun addContact(contact: Contact, position: Int = -1) {
         _contacts.value = _contacts.value?.toMutableList()?.apply {
             if (position == -1) {
                 add(contact)

@@ -55,11 +55,14 @@ class MyContactsActivity : AppCompatActivity(), AddContactDialogFragment.OnConta
             contactsAdapter.submitList(contacts)
         }
 
-        binding.arrowBack.setOnClickListener { goBack() }
-
-        binding.addContacts.setOnClickListener { showAddContactDialog() }
+        initClickListeners()
 
         setupSwipeToDelete(recyclerView)
+    }
+
+    private fun initClickListeners() {
+        binding.arrowBack.setOnClickListener { goBack() }
+        binding.addContacts.setOnClickListener { showAddContactDialog() }
     }
 
     private fun showAddContactDialog() {
@@ -68,6 +71,7 @@ class MyContactsActivity : AppCompatActivity(), AddContactDialogFragment.OnConta
 
     private fun deleteContactWithUndo(contact: Contact, position: Int) {
         viewModel.removeContact(contact)
+        var isUndoClicked = false
 
         Snackbar.make(
             binding.root,
@@ -75,7 +79,10 @@ class MyContactsActivity : AppCompatActivity(), AddContactDialogFragment.OnConta
             Snackbar.LENGTH_LONG
         )
             .setAction(getString(R.string.cancel)) {
-                viewModel.addContact(contact, position)
+                if (!isUndoClicked) {
+                    isUndoClicked = true
+                    viewModel.addContact(contact, position)
+                }
             }
             .setDuration(5000)
             .show()
