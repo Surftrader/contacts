@@ -1,14 +1,10 @@
 package com.example.contacts.screens.contacts
 
 import android.content.Intent
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
@@ -94,61 +90,11 @@ class MyContactsActivity : AppCompatActivity(), AddContactDialogFragment.OnConta
     }
 
     private fun setupSwipeToDelete(recyclerView: RecyclerView) {
-        val itemTouchHelper = ItemTouchHelper(
-            object : ItemTouchHelper.SimpleCallback(
-                0, ItemTouchHelper.LEFT
-            ) {
-                override fun onMove(
-                    recyclerView: RecyclerView,
-                    viewHolder: RecyclerView.ViewHolder,
-                    target: RecyclerView.ViewHolder
-                ): Boolean = false
-
-                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                    val position = viewHolder.adapterPosition
-                    val contact = contactsAdapter.currentList[position]
-                    deleteContactWithUndo(contact, position)
-                }
-
-                override fun onChildDraw(
-                    c: Canvas, recyclerView: RecyclerView,
-                    viewHolder: RecyclerView.ViewHolder,
-                    dX: Float, dY: Float, actionState: Int, isCurrentlyActive: Boolean
-                ) {
-                    val itemView = viewHolder.itemView
-                    val paint = Paint()
-                    val icon =
-                        ContextCompat.getDrawable(this@MyContactsActivity, R.drawable.arrow_back)!!
-
-                    // Draw red background
-                    paint.color = Color.RED
-                    c.drawRect(
-                        itemView.right + dX, itemView.top.toFloat(),
-                        itemView.right.toFloat(), itemView.bottom.toFloat(), paint
-                    )
-
-                    // Draw icon
-                    val iconMargin = (itemView.height - icon.intrinsicHeight) / 2
-                    val iconTop = itemView.top + (itemView.height - icon.intrinsicHeight) / 2
-                    val iconLeft = itemView.right - iconMargin - icon.intrinsicWidth
-                    val iconRight = itemView.right - iconMargin
-                    val iconBottom = iconTop + icon.intrinsicHeight
-
-                    icon.setBounds(iconLeft, iconTop, iconRight, iconBottom)
-                    icon.draw(c)
-
-                    super.onChildDraw(
-                        c,
-                        recyclerView,
-                        viewHolder,
-                        dX,
-                        dY,
-                        actionState,
-                        isCurrentlyActive
-                    )
-                }
-            })
-
+        val swipeCallback = SwipeToDeleteCallback(this) { position ->
+            val contact = contactsAdapter.currentList[position]
+            deleteContactWithUndo(contact, position)
+        }
+        val itemTouchHelper = ItemTouchHelper(swipeCallback)
         itemTouchHelper.attachToRecyclerView(recyclerView)
     }
 
