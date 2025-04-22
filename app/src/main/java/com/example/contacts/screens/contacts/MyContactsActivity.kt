@@ -45,10 +45,7 @@ class MyContactsActivity : AppCompatActivity(), AddContactDialogFragment.OnConta
             insets
         }
 
-
-        val recyclerView = binding.rcvContacts
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = contactsAdapter
+        val recyclerView = initRecycler()
 
         viewModel.contacts.observe(this) { contacts ->
             contactsAdapter.submitList(contacts)
@@ -57,6 +54,13 @@ class MyContactsActivity : AppCompatActivity(), AddContactDialogFragment.OnConta
         initClickListeners()
 
         setupSwipeToDelete(recyclerView)
+    }
+
+    private fun initRecycler(): RecyclerView {
+        val recyclerView = binding.rcvContacts
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = contactsAdapter
+        return recyclerView
     }
 
     private fun initClickListeners() {
