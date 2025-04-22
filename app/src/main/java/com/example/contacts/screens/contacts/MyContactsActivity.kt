@@ -28,8 +28,15 @@ class MyContactsActivity : AppCompatActivity(), AddContactDialogFragment.OnConta
     private val binding: ActivityMyContactsBinding by lazy {
         ActivityMyContactsBinding.inflate(layoutInflater)
     }
-    private lateinit var contactsAdapter: ContactAdapter
-    private lateinit var viewModel: ContactViewModel
+
+    private val contactsAdapter: ContactAdapter by lazy {
+        ContactAdapter { contact, position ->
+            deleteContactWithUndo(contact, position) }
+    }
+
+    private val viewModel: ContactViewModel by lazy {
+        ViewModelProvider(this)[ContactViewModel::class.java]
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,10 +49,6 @@ class MyContactsActivity : AppCompatActivity(), AddContactDialogFragment.OnConta
             insets
         }
 
-        viewModel = ViewModelProvider(this)[ContactViewModel::class.java]
-        contactsAdapter = ContactAdapter { contact, position ->
-            deleteContactWithUndo(contact, position)
-        }
 
         val recyclerView = binding.rcvContacts
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -66,7 +69,9 @@ class MyContactsActivity : AppCompatActivity(), AddContactDialogFragment.OnConta
     }
 
     private fun showAddContactDialog() {
-        AddContactDialogFragment().show(supportFragmentManager, ADD_CONTACT_DIALOG)
+        val dialog = AddContactDialogFragment()
+        dialog.setOnContactListener(this)
+        dialog.show(supportFragmentManager, ADD_CONTACT_DIALOG)
     }
 
     private fun deleteContactWithUndo(contact: Contact, position: Int) {

@@ -76,6 +76,10 @@ class AddContactDialogFragment : DialogFragment() {
         binding.btnCancel.setOnClickListener { dismiss() }
     }
 
+    fun setOnContactListener(listener: OnContactAddedListener) {
+        this.listener = listener
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
