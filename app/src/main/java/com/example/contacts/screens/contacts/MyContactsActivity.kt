@@ -1,6 +1,5 @@
 package com.example.contacts.screens.contacts
 
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -17,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.contacts.R
 import com.example.contacts.databinding.ActivityMyContactsBinding
 import com.example.contacts.model.Contact
-import com.example.contacts.screens.profile.MyProfileActivity
+import com.example.contacts.util.Navigator
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -34,6 +33,10 @@ class MyContactsActivity : AppCompatActivity(), AddContactDialogFragment.OnConta
     private val contactsAdapter: ContactAdapter by lazy {
         ContactAdapter { contact, position ->
             deleteContactWithUndo(contact, position) }
+    }
+
+    private val navigator: Navigator by lazy {
+        Navigator(this)
     }
 
     private val viewModel: ContactViewModel by viewModels()
@@ -75,9 +78,9 @@ class MyContactsActivity : AppCompatActivity(), AddContactDialogFragment.OnConta
         return recyclerView
     }
 
-    private fun initClickListeners() {
-        binding.arrowBack.setOnClickListener { goBack() }
-        binding.addContacts.setOnClickListener { showAddContactDialog() }
+    private fun initClickListeners() = with(binding) {
+        arrowBack.setOnClickListener { goBack() }
+        addContacts.setOnClickListener { showAddContactDialog() }
     }
 
     private fun showAddContactDialog() {
@@ -119,8 +122,7 @@ class MyContactsActivity : AppCompatActivity(), AddContactDialogFragment.OnConta
     }
 
     private fun goBack() {
-        startActivity(Intent(this, MyProfileActivity::class.java))
-        finish()
+        navigator.navigateToMyProfile()
     }
 
     @Suppress("DEPRECATION")

@@ -1,6 +1,5 @@
 package com.example.contacts.screens.profile
 
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -9,8 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.contacts.R
 import com.example.contacts.databinding.ActivityMyProfileBinding
-import com.example.contacts.screens.auth.SignUpActivity
-import com.example.contacts.screens.contacts.MyContactsActivity
+import com.example.contacts.util.Navigator
 import com.example.contacts.util.PreferencesManager
 import com.example.contacts.util.loadImage
 
@@ -26,6 +24,10 @@ class MyProfileActivity : AppCompatActivity() {
         PreferencesManager(this)
     }
 
+    private val navigator: Navigator by lazy {
+        Navigator(this)
+    }
+
     private val url = "https://poseal.com.ua/static/img/ava.jpg"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,45 +40,35 @@ class MyProfileActivity : AppCompatActivity() {
             insets
         }
 
-        with(binding) {
-            textViewName.text = preferencesManager.getFullName()
-            btnViewLogout.setOnClickListener { logout() }
-            btnContacts.setOnClickListener { showContacts() }
-            btnEdit.setOnClickListener { showEditPage() }
-        }
+        initData()
+        setListeners()
+    }
 
+    private fun initData() = with(binding) {
+        textViewName.text = preferencesManager.getFullName()
         // Glide
-        binding.imgViewPhoto.loadImage(url)
+        imgViewPhoto.loadImage(url)
         // Picasso
-        //binding.imgViewPhoto.loadImage(url, useGlide = false)
+        //imgViewPhoto.loadImage(url, useGlide = false)
+    }
+
+    private fun setListeners() = with(binding) {
+        btnViewLogout.setOnClickListener { logout() }
+        btnContacts.setOnClickListener { showContacts() }
+        btnEdit.setOnClickListener { showEditPage() }
     }
 
     private fun showEditPage() {
-        val intent = Intent(
-            this@MyProfileActivity,
-            EditProfileActivity::class.java
-        )
-        startActivity(intent)
-        finish()
+        navigator.navigateToEditProfile()
     }
 
     private fun showContacts() {
-        val intent = Intent(
-            this@MyProfileActivity,
-            MyContactsActivity::class.java
-        )
-        startActivity(intent)
-        finish()
+        navigator.navigateToContacts()
     }
 
     private fun logout() {
         preferencesManager.clearData()
-        val intent = Intent(
-            this@MyProfileActivity,
-            SignUpActivity::class.java
-        )
-        startActivity(intent)
-        finish()
+        navigator.navigateToSignUp()
     }
 
     @Suppress("DEPRECATION")

@@ -1,6 +1,5 @@
 package com.example.contacts.screens.auth
 
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -9,7 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.contacts.R
 import com.example.contacts.databinding.ActivitySignUpBinding
-import com.example.contacts.screens.profile.MyProfileActivity
+import com.example.contacts.util.Navigator
 import com.example.contacts.util.PreferencesManager
 import com.example.contacts.util.Validator
 
@@ -23,6 +22,10 @@ class SignUpActivity : AppCompatActivity() {
 
     private val preferencesManager: PreferencesManager by lazy {
         PreferencesManager(this)
+    }
+
+    private val navigator: Navigator by lazy {
+        Navigator(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,12 +69,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun moveToMyProfile() {
-        val intent = Intent(
-            this@SignUpActivity,
-            MyProfileActivity::class.java
-        )
-        startActivity(intent)
-        finish()
+        navigator.navigateToMyProfile()
     }
 
     private fun loadData() {
