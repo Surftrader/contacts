@@ -46,34 +46,51 @@ class AddContactDialogFragment : DialogFragment() {
     }
 
     private fun initClickListeners() {
+        initSaveButtonListener()
+        initCancelButtonListener()
+    }
+
+    private fun initSaveButtonListener() {
         binding.btnSave.setOnClickListener {
-            val fullName = binding.editFullname.text.toString().trim()
-            val names = fullName.split(" ")
-            val firstName = names.firstOrNull() ?: ""
-            val lastName = names.getOrNull(1) ?: ""
-
-            val email = binding.editEmail.text.toString().trim()
-            val phone = binding.editPhone.text.toString().trim()
-            val career = binding.editCareer.text.toString().trim()
-
-            if (fullName.isNotEmpty() && email.isNotEmpty() && phone.isNotEmpty()) {
-                val newContact = Contact(
-                    firstName = firstName,
-                    lastName = lastName,
-                    email = email,
-                    mobile = phone,
-                    career = career,
-                    profession = career,
-                    imageId = R.drawable.ic_person
-                )
-                listener?.onContactAdded(newContact)
+            val contact = createContactFromInput()
+            if (isInputValid(contact)) {
+                listener?.onContactAdded(contact)
                 dismiss()
             } else {
-                requireContext().showToast(getString(R.string.required_fields))
+                showValidationError()
             }
         }
+    }
 
+    private fun initCancelButtonListener() {
         binding.btnCancel.setOnClickListener { dismiss() }
+    }
+
+    private fun createContactFromInput(): Contact {
+        val fullName = binding.editFullname.text.toString().trim()
+        val names = fullName.split(" ")
+        val firstName = names.firstOrNull() ?: ""
+        val lastName = names.getOrNull(1) ?: ""
+
+        return Contact(
+            firstName = firstName,
+            lastName = lastName,
+            email = binding.editEmail.text.toString().trim(),
+            mobile = binding.editPhone.text.toString().trim(),
+            career = binding.editCareer.text.toString().trim(),
+            profession = binding.editCareer.text.toString().trim(),
+            imageId = R.drawable.ic_person
+        )
+    }
+
+    private fun isInputValid(contact: Contact): Boolean {
+        return contact.firstName.isNotEmpty() && 
+               contact.email.isNotEmpty() && 
+               contact.mobile.isNotEmpty()
+    }
+
+    private fun showValidationError() {
+        requireContext().showToast(getString(R.string.required_fields))
     }
 
     fun setOnContactListener(listener: OnContactAddedListener) {
