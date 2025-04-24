@@ -1,28 +1,34 @@
 package com.example.contacts.screens.contacts
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.contacts.data.InternDataSource
 import com.example.contacts.model.Contact
+import com.example.contacts.repository.ContactRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import javax.inject.Inject
 
-class ContactViewModel : ViewModel() {
+@HiltViewModel
+class ContactViewModel @Inject constructor(
+    private val repository: ContactRepository
+): ViewModel() {
 
-    private val dataSource = InternDataSource()
-    private val _contacts = MutableLiveData(dataSource.getContacts())
-    val contacts: LiveData<List<Contact>> get() = _contacts
+    private val _contacts = MutableStateFlow<List<Contact>>(repository.getContacts())
+    val contacts: StateFlow<List<Contact>> = _contacts
 
     fun removeContact(contact: Contact) {
-        _contacts.value = _contacts.value?.filter { it.email != contact.email }
+        repository.removeContact(contact)
+        _contacts.value = contacts.value.filter { it.email != contact.email }
     }
 
     fun addContact(contact: Contact, position: Int = -1) {
-        _contacts.value = _contacts.value?.toMutableList()?.apply {
-            if (position == -1) {
-                add(contact)
-            } else {
-                add(position, contact)
-            }
+        repository.addContact(contact)
+        val currentList = _contacts.value.toMutableList()
+        if (position == -1 || position >= currentList.size) {
+            currentList.add(contact)
+        } else {
+            currentList.add(position, contact)
         }
+        _contacts.value = currentList
     }
 }

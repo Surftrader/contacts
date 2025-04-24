@@ -4,10 +4,13 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,9 +19,12 @@ import com.example.contacts.databinding.ActivityMyContactsBinding
 import com.example.contacts.model.Contact
 import com.example.contacts.screens.profile.MyProfileActivity
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 const val ADD_CONTACT_DIALOG = "AddContactDialog"
 
+@AndroidEntryPoint
 class MyContactsActivity : AppCompatActivity(), AddContactDialogFragment.OnContactAddedListener {
 
     private val binding: ActivityMyContactsBinding by lazy {
@@ -30,9 +36,7 @@ class MyContactsActivity : AppCompatActivity(), AddContactDialogFragment.OnConta
             deleteContactWithUndo(contact, position) }
     }
 
-    private val viewModel: ContactViewModel by lazy {
-        ViewModelProvider(this)[ContactViewModel::class.java]
-    }
+    private val viewModel: ContactViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,13 +51,21 @@ class MyContactsActivity : AppCompatActivity(), AddContactDialogFragment.OnConta
 
         val recyclerView = initRecycler()
 
-        viewModel.contacts.observe(this) { contacts ->
-            contactsAdapter.submitList(contacts)
-        }
+        subscribeToContacts()
 
         initClickListeners()
 
         setupSwipeToDelete(recyclerView)
+    }
+
+    private fun subscribeToContacts() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.contacts.collect { contacts ->
+                    contactsAdapter.submitList(contacts)
+                }
+            }
+        }
     }
 
     private fun initRecycler(): RecyclerView {

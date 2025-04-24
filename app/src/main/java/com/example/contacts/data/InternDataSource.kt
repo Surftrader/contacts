@@ -5,7 +5,7 @@ import com.example.contacts.model.Contact
 
 class InternDataSource : DataSource<Contact> {
 
-    private val initialContacts = mutableListOf(
+    private val contacts = mutableListOf(
         Contact(
             imageId = R.drawable.ava_smith,
             email = "ava.smith@gmail.com",
@@ -43,9 +43,13 @@ class InternDataSource : DataSource<Contact> {
         )
     )
 
-    private var contacts: MutableList<Contact> = initialContacts.toMutableList()
+    override fun getContacts(): List<Contact> {
+        return contacts.toList()
+    }
 
-    override fun getContacts(): List<Contact> = contacts
+    fun addContact(contact: Contact) {
+        contacts.add(contact)
+    }
 
     fun removeContact(contact: Contact) {
         contacts.remove(contact)

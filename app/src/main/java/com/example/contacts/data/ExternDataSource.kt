@@ -6,4 +6,12 @@ class ExternDataSource : DataSource<Contact> {
     override fun getContacts(): List<Contact> {
         return emptyList()
     }
+
+    fun addContact(contact: Contact) {
+        // TODO
+    }
+
+    fun removeContact(contact: Contact) {
+        // TODO
+    }
 }
