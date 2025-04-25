@@ -2,6 +2,7 @@ package com.example.contacts.util
 
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.core.content.edit
 
 class PreferencesManager(context: Context) {
 
@@ -10,13 +11,14 @@ class PreferencesManager(context: Context) {
 
     fun saveData(isRemember: Boolean, email: String, password: String) {
         val username = Parser.getUsername(email)
-        sharedPref.edit()
-            .apply {
+        sharedPref.edit {
+            apply {
                 putBoolean(IS_REMEMBER, isRemember)
                 putString(EMAIL, email)
                 putString(PASSWORD, password)
                 putString(FULL_NAME, "${username.first} ${username.second}")
-            }.apply()
+            }
+        }
     }
 
     fun loadData(): Boolean {
@@ -32,7 +34,7 @@ class PreferencesManager(context: Context) {
     }
 
     fun clearData() {
-        sharedPref.edit()?.clear()?.apply()
+        sharedPref.edit{ clear() }
     }
 
     companion object {
