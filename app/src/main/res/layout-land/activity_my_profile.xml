@@ -5,7 +5,7 @@
     android:id="@+id/my_profile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyProfileActivity">
+    tools:context=".screens.profile.MyProfileActivity">
 
     <View
         android:id="@+id/my_profile_up"
@@ -43,7 +43,7 @@
         android:id="@+id/btn_view_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/medium_margin_vertical"
+        android:layout_marginTop="@dimen/medium1_margin_vertical"
         android:layout_marginEnd="@dimen/medium_margin_horizontal"
         android:text="@string/log_out"
         android:textAllCaps="false"

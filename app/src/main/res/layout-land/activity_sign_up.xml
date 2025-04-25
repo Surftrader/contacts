@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/profile_background"
-    tools:context=".SignUpActivity">
+    tools:context=".screens.auth.SignUpActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -70,6 +70,7 @@
             android:id="@+id/edit_text_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="@dimen/input_field_padding"
             android:inputType="textEmailAddress"
             android:text=""
             android:textColor="@color/white"
@@ -101,6 +102,7 @@
             android:id="@+id/edit_text_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="@dimen/input_field_padding"
             android:inputType="textPassword"
             android:text=""
             android:textColor="@color/white"

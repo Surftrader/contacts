@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingBottom="@dimen/small_padding_horizontal">
+
+    <ImageView
+        android:id="@+id/view_item"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/small_margin_horizontal"
+        android:background="@drawable/rounded_corner_background"
+        android:contentDescription="@string/item_background"
+        app:layout_constraintBottom_toBottomOf="@+id/photo_contact"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/photo_contact"
+        android:layout_width="@dimen/ava_size"
+        android:layout_height="@dimen/ava_size"
+        android:layout_margin="@dimen/small_margin_horizontal"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@id/view_item"
+        app:layout_constraintEnd_toStartOf="@id/name_contact"
+        app:layout_constraintStart_toStartOf="@id/view_item"
+        app:layout_constraintTop_toTopOf="@id/view_item"
+        app:shapeAppearanceOverlay="@style/circular"
+        app:srcCompat="@drawable/ava" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/name_contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/medium_margin_horizontal"
+        android:layout_marginTop="@dimen/small_margin_horizontal"
+        android:textColor="@color/grey_text"
+        android:textSize="@dimen/title_medium"
+        android:textStyle="bold"
+        tools:text="Sergiy Poddubka"
+        app:layout_constraintBottom_toTopOf="@id/profession_contact"
+        app:layout_constraintStart_toEndOf="@id/photo_contact"
+        app:layout_constraintTop_toTopOf="@id/view_item" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/profession_contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/medium_margin_horizontal"
+        android:layout_marginBottom="@dimen/small_margin_vertical"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/title_small"
+        android:textStyle="bold"
+        tools:text="Java Developer"
+        app:layout_constraintBottom_toBottomOf="@+id/view_item"
+        app:layout_constraintStart_toEndOf="@+id/photo_contact"
+        app:layout_constraintTop_toBottomOf="@+id/name_contact" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ic_trash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="@dimen/medium_margin_vertical"
+        android:contentDescription="@string/trash"
+        app:layout_constraintBottom_toBottomOf="@id/view_item"
+        app:layout_constraintEnd_toEndOf="@id/view_item"
+        app:layout_constraintTop_toTopOf="@id/view_item"
+        app:srcCompat="@drawable/trash" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

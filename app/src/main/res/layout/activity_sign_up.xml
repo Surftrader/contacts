@@ -5,7 +5,7 @@
     android:id="@+id/sing_up"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpActivity">
+    tools:context=".screens.auth.SignUpActivity">
 
     <View
         android:id="@+id/view_signup"
@@ -69,6 +69,7 @@
             android:id="@+id/edit_text_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="@dimen/input_field_padding"
             android:inputType="textEmailAddress"
             android:textColor="@color/white"
             android:textSize="@dimen/title_medium"
@@ -98,6 +99,7 @@
             android:id="@+id/edit_text_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="@dimen/input_field_padding"
             android:textColor="@color/white"
             android:textSize="@dimen/title_medium"
             android:inputType="textPassword"

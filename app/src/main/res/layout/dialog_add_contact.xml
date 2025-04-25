@@ -1,0 +1,472 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/add_contact_up"
+        android:layout_width="0dp"
+        android:layout_height="240dp"
+        android:background="@color/profile_background"
+        app:layout_constraintBottom_toTopOf="@id/add_contact_down"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/add_contact_down"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_my_profile_down"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_contact_up" />
+
+        <ImageView
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin_horizontal"
+            android:layout_marginTop="@dimen/medium1_margin_vertical"
+            android:contentDescription="@string/back_arrow"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/arrow_back" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_add_contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin_vertical"
+            android:text="@string/add_contact"
+            android:textColor="@color/white"
+            android:textSize="@dimen/headline_small"
+            app:layout_constraintBottom_toTopOf="@id/img_view_photo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/img_view_photo"
+            android:layout_width="@dimen/img_size"
+            android:layout_height="@dimen/img_size"
+            android:layout_marginVertical="24dp"
+            android:contentDescription="@string/avatar"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_person"
+            app:layout_constraintEnd_toEndOf="@+id/add_contact_up"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_add_contact"
+            app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/icon_add_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="100dp"
+            android:clickable="true"
+            android:contentDescription="@string/add_contact"
+            android:src="@drawable/icon_add_photo"
+            app:layout_constraintStart_toEndOf="@+id/img_view_photo"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="16dp"
+        android:fillViewport="true"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/add_contact_down"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/username" />
+
+            <EditText
+                android:id="@+id/edit_fullname"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="@string/full_name_hint"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                tools:text="Sergiy Poddubka" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/career" />
+
+            <EditText
+                android:id="@+id/edit_career"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                tools:text="Java Developer"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/email" />
+
+            <EditText
+                android:id="@+id/edit_email"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:importantForAutofill="no"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:inputType="textEmailAddress"
+                tools:text="example@gmail.com" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/phone" />
+
+            <EditText
+                android:id="@+id/edit_phone"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:importantForAutofill="no"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:inputType="phone"
+                tools:text="(264)-654-3452" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/address" />
+
+            <EditText
+                android:id="@+id/edit_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                tools:text="5295 Gaylord Walks Apk. 110" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/date_of_birth" />
+
+            <EditText
+                android:id="@+id/edit_birthday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                tools:text="12/05/1994" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_btn"
+        android:layout_marginHorizontal="@dimen/large_margin_horizontal"
+        android:layout_marginVertical="@dimen/medium1_margin_vertical"
+        android:includeFontPadding="false"
+        android:text="@string/save"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="@dimen/title_small"
+        android:textStyle="bold"
+        app:backgroundTint="@color/btn_color_view_contacts"
+        app:cornerRadius="@dimen/radius_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scroll_view"
+        tools:ignore="VisualLintButtonSize" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:orientation="vertical">-->
+
+<!--    <View-->
+<!--        android:id="@+id/add_contact_up"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="240dp"-->
+<!--        android:background="@color/profile_background"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/img_view_photo"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/add_contact_down"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <View-->
+<!--        android:id="@+id/add_contact_down"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:background="@color/color_my_profile_down"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/add_contact_up" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/btn_cancel"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="@dimen/medium_margin_horizontal"-->
+<!--        android:layout_marginTop="@dimen/medium1_margin_vertical"-->
+<!--        android:contentDescription="@string/back_arrow"-->
+<!--        app:layout_constraintHorizontal_chainStyle="spread_inside"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:srcCompat="@drawable/arrow_back" />-->
+
+<!--    <androidx.appcompat.widget.AppCompatTextView-->
+<!--        android:id="@+id/text_add_contact"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="@dimen/medium_margin_vertical"-->
+<!--        android:text="@string/add_contact"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="@dimen/headline_small"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/img_view_photo"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <com.google.android.material.imageview.ShapeableImageView-->
+<!--        android:id="@+id/img_view_photo"-->
+<!--        android:layout_width="@dimen/img_size"-->
+<!--        android:layout_height="@dimen/img_size"-->
+<!--        android:layout_marginVertical="24dp"-->
+<!--        android:contentDescription="@string/avatar"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:src="@drawable/ic_error"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/add_contact_up"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/text_add_contact"-->
+<!--        app:shapeAppearanceOverlay="@style/roundedImageView" />-->
+
+<!--    <androidx.appcompat.widget.AppCompatImageView-->
+<!--        android:id="@+id/icon_add_photo"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:layout_marginTop="100dp"-->
+<!--        android:clickable="true"-->
+<!--        android:contentDescription="@string/add_contact"-->
+<!--        android:src="@drawable/icon_add_photo"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/img_view_photo"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        tools:ignore="DuplicateSpeakableTextCheck" />-->
+
+<!--    <ScrollView-->
+<!--        android:id="@+id/scroll_layout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginVertical="16dp"-->
+<!--        android:fillViewport="true"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/add_contact_up"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/btn_save">-->
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/linearLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginHorizontal="16dp"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="24dp"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:text="@string/username" />-->
+
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:id="@+id/edit_fullname"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:hint="@string/full_name_hint"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                tools:text="Sergiy Poddubka" />-->
+
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:background="@color/grey" />-->
+
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="24dp"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:text="@string/career" />-->
+
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:id="@+id/edit_career"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                tools:text="Java Developer" />-->
+
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:background="@color/grey" />-->
+
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="24dp"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:text="@string/email" />-->
+
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:id="@+id/edit_email"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                tools:text="example@gmail.com" />-->
+
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:background="@color/grey" />-->
+
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="24dp"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:text="@string/phone" />-->
+
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:id="@+id/edit_phone"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:inputType="phone"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                tools:text="(264)-654-3452" />-->
+
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:background="@color/grey" />-->
+
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="24dp"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:text="@string/address" />-->
+
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:id="@+id/edit_address"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                tools:text="5295 Gaylord Walks Apk. 110" />-->
+
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:background="@color/grey" />-->
+
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="24dp"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:text="@string/date_of_birth" />-->
+
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:id="@+id/edit_birthday"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                tools:text="12/05/1994" />-->
+
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:background="@color/grey" />-->
+<!--        </LinearLayout>-->
+<!--    </ScrollView>-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btn_save"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/height_btn"-->
+<!--        android:layout_marginHorizontal="@dimen/large_margin_horizontal"-->
+<!--        android:layout_marginVertical="@dimen/medium1_margin_vertical"-->
+<!--        android:includeFontPadding="false"-->
+<!--        android:text="@string/save"-->
+<!--        android:textAllCaps="true"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="@dimen/title_small"-->
+<!--        android:textStyle="bold"-->
+<!--        app:backgroundTint="@color/btn_color_view_contacts"-->
+<!--        app:cornerRadius="@dimen/radius_btn"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/scroll_layout"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        tools:ignore="VisualLintButtonSize" />-->
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
