@@ -1,4 +1,4 @@
-package com.example.contacts.screens.contacts
+package com.example.contacts.adapters
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.contacts.R
+import com.example.contacts.adapters.ContactAdapter
 import com.example.contacts.databinding.ActivityMyContactsBinding
 import com.example.contacts.model.Contact
 import com.example.contacts.util.Navigator
@@ -32,7 +33,8 @@ class MyContactsActivity : AppCompatActivity(), AddContactDialogFragment.OnConta
 
     private val contactsAdapter: ContactAdapter by lazy {
         ContactAdapter { contact, position ->
-            deleteContactWithUndo(contact, position) }
+            deleteContactWithUndo(contact, position)
+        }
     }
 
     private val navigator: Navigator by lazy {

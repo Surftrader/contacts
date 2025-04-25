@@ -1,10 +1,12 @@
-package com.example.contacts.screens.contacts
+package com.example.contacts.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.contacts.R
 import com.example.contacts.model.Contact
+import com.example.contacts.adapters.ContactDiffCallback
+import com.example.contacts.adapters.ContactViewHolder
 
 class ContactAdapter(
     private val onDeleteClick: (Contact, Int) -> Unit
