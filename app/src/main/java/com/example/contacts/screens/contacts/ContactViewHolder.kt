@@ -13,7 +13,7 @@ class ContactViewHolder(
 
     fun bind(contact: Contact, position: Int) = with(binding) {
         photoContact.setImageResource(contact.imageId)
-        "${contact.firstName} ${contact.lastName}".also { nameContact.text = it }
+        nameContact.text = String.format("%S %S", contact.firstName, contact.lastName)
         contact.profession.also { professionContact.text = it }
         icTrash.setOnClickListener { onDeleteClick(contact, position) }
     }
