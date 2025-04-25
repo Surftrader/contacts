@@ -3,7 +3,7 @@ package com.example.contacts.data
 import com.example.contacts.R
 import com.example.contacts.model.Contact
 
-class InternDataSource : DataSource<Contact> {
+class InternDataSource : DataSource {
 
     private val contacts = mutableListOf(
         Contact(
