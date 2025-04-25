@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.example.contacts.R
 import com.example.contacts.databinding.DialogAddContactBinding
+import com.example.contacts.extensions.showToast
 import com.example.contacts.model.Contact
-import com.example.contacts.util.showToast
 
 class AddContactDialogFragment : DialogFragment() {
 
